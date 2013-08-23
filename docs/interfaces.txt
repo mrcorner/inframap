@@ -1,0 +1,40 @@
+1	2	RMS	1	Aprimo	No	Database			
+2	3	XM2	2	RMS	No	DBRead			
+3	3	XM2	4	Digip	No	Fileshare		2000	
+4	7	iProcess	3	XM2	No	RFC			
+5	7	iProcess	10	Informatica	No	na			
+6	10	Informatica	11	Vaultage	No	na			
+7	11	Vaultage	6	Qlikview	No	na			
+8	3	XM2	6	Qlikview	No	DBRead			
+9	8	SAP ISU	3	XM2	No	Database		125000	
+10	9	SAP CRM	3	XM2	No	Database		50000	
+11	8	SAP ISU	10	Informatica	No	Extractor		10000	
+12	9	SAP CRM	10	Informatica	No	Extractor		5000	
+13	12	Avaya	13	Totalview	No	na			
+14	13	Totalview	14	PIF	No	Fileshare		100	
+15	13	Totalview	14	PIF	No	Database		100	
+16	3	XM2	14	PIF	No	Database		2500	
+17	7	iProcess	14	PIF	No	Database		5000	
+18	2	RMS	15	SAS	No	na			
+19	3	XM2	16	ACL	No	Fileshare			
+20	17	EDSN Gateway	3	XM2	No	Fileshare		1000	
+21	3	XM2	7	iProcess	No	Fileshare			
+22	3	XM2	10	Informatica	No	DBRead			
+23	12	Avaya	14	PIF	No	Database		1300	
+24	14	PIF	18	Audit Base	No	FTP		750	
+25	4	Digip	14	PIF	No	Database		1100	
+26	5	Sharepoint	14	PIF	No	FTP		1500	
+27	19	Thinconnect	14	PIF	No	Database		800	
+28	14	PIF	6	Qlikview	No	Database		2000	
+29	20	BPS DWH	14	PIF	No	Database		2000	
+30	21	RWE AD servers	14	PIF	No	Fileshare		500	
+31	22	TIJSS	14	PIF	No	Fileshare		50	
+32	4	Digip	6	Qlikview	No	Database			
+33	17	EDSN Gateway	10	Informatica	No	Database			
+34	23	TPM	10	Informatica	No	Database			
+35	24	All4One	10	Informatica	No	Extractor			
+36	25	Wasstraat	2	RMS	Yes	Database			
+37	14	PIF	4	Digip	No	Database		500	
+38	14	PIF	7	iProcess	No	Adapter		50	
+39	14	PIF	5	Sharepoint	No	Database			
+40	14	PIF	2	RMS	No	Database		50	
