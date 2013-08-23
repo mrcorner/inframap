@@ -1,0 +1,40 @@
+
+
+<html>
+    <head>
+        <title>Infrastructure map</title>
+    </head>
+    
+    
+<body>
+
+<table>
+
+<form action="/" method="POST">
+
+<tr><td colspan="3"><embed src="static/out.svg" type="image/svg+xml"></td></tr>
+<tr><td>
+Node Color:<br>
+<input type="radio" name="nodecolor" value="storage">Storage<br>
+<input type="radio" name="nodecolor" value="cpu">CPU<br>
+<input type="radio" name="nodecolor" value="none" >None<br>
+</td>
+<td>
+Edge Color:<br>
+<input type="radio" name="edgecolor" value="throughput">Throughput<br>
+<input type="radio" name="edgecolor" value="type">Types<br>
+<input type="radio" name="edgecolor" value="none">None<br>
+</td>
+<td>
+Edge Width:<br>
+<input type="radio" name="edgewidth" value="type">Throughput<br>
+<input type="radio" name="edgewidth" value="none" >None<br>
+</td>
+</tr>
+</table>
+<input type="submit" value="Submit">
+</form>
+
+
+</body>
+</html>

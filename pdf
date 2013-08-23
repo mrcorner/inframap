@@ -1,0 +1,52 @@
+digraph G {
+	graph [bb="0,0,278,267",
+		fontname="Myriad Condensed Web",
+		overlap=false,
+		splines=true
+	];
+	node [color=skyblue,
+		fontname="Myriad Condensed Web",
+		label="\N",
+		shape=box
+	];
+	edge [fontname="Myriad Condensed Web",
+		fontsize=8
+	];
+	Name	 [height=0.5,
+		pos="148,40",
+		width=0.75];
+	Aprimo	 [height=0.5,
+		pos="47.537,18",
+		width=0.76389];
+	RMS	 [height=0.5,
+		pos="66.588,88.713",
+		width=0.75];
+	RMS -> Aprimo	 [pos="e,52.492,36.394 61.682,70.503 59.697,63.137 57.36,54.461 55.163,46.307"];
+	XM2	 [height=0.5,
+		pos="82.024,163.94",
+		width=0.75];
+	XM2 -> RMS	 [pos="e,70.29,106.75 78.288,145.73 76.505,137.04 74.333,126.45 72.346,116.77"];
+	Digip	 [height=0.5,
+		pos="27,218.92",
+		width=0.75];
+	XM2 -> Digip	 [pos="e,45.246,200.68 64.007,181.94 60.34,185.6 56.417,189.52 52.545,193.39"];
+	Sharepoint	 [height=0.5,
+		pos="154.56,191.93",
+		width=1.0139];
+	XM2 -> Sharepoint	 [pos="e,117.91,177.78 109.03,174.36 109.13,174.39 109.22,174.43 109.31,174.46"];
+	Qlikview	 [height=0.5,
+		pos="162,106",
+		width=0.83333];
+	iProcess	 [height=0.5,
+		pos="249,106",
+		width=0.80556];
+	SAP	 [height=0.5,
+		pos="225,40",
+		width=0.75];
+	ISU	 [height=0.5,
+		pos="236,249",
+		width=0.75];
+	CRM	 [height=0.5,
+		pos="159,249",
+		width=0.75];
+}

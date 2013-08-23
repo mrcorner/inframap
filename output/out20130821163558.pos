@@ -1,0 +1,86 @@
+digraph G {
+size="15,100"
+overlap=false;
+fontname="Myriad Condensed Web";
+splines=true;
+edge [fontname="Myriad Condensed Web", fontsize=8];
+node [shape=box, color=skyblue, fontname="Myriad Condensed Web"];
+"Aprimo";
+"RMS";
+"XM2";
+"Digip";
+"Sharepoint"[style = filled, color=grey70];
+"Qlikview";
+"iProcess"[style = filled, color=grey70];
+"SAP ISU"[style = filled, color=grey70];
+"SAP CRM"[style = filled, color=grey70];
+"Informatica";
+"Vaultage";
+"Avaya";
+"Totalview";
+"PIF";
+"SAS";
+"ACL"[style = filled, color=grey70];
+"EDSN Gateway"[style = filled, color=grey70];
+"Audit Base"[style = filled, color=grey70];
+"Thinconnect"[style = filled, color=grey70];
+"BPS Datawarehouse"[style = filled, color=grey70];
+"RWE AD servers"[style = filled, color=grey70];
+"TIJSS"[style = filled, color=grey70];
+"TPM"[style = filled, color=grey70];
+"All4One"[style = filled, color=grey70];
+"Wasstraat"[style = filled, color=grey70];
+
+{
+node [shape=plaintext, fontsize=16];
+Source -> ETL -> Database -> Application -> Presentation;
+}
+{ rank=same; Source;  "iProcess";  "SAP ISU";  "SAP CRM";  "Avaya";  "EDSN Gateway";  "Thinconnect";  "BPS Datawarehouse";  "RWE AD servers";  "TIJSS";  "TPM";  "All4One";  "Wasstraat"; 
+}
+{ rank=same; ETL;  "Informatica"; 
+}
+{ rank=same; Database;  "RMS";  "XM2";  "Vaultage"; 
+}
+{ rank=same; Application;  "Aprimo";  "Digip";  "Totalview";  "PIF";  "SAS";  "ACL";  "Audit Base"; 
+}
+{ rank=same; Presentation;  "Sharepoint";  "Qlikview"; 
+}
+"RMS" -> "Aprimo";
+"XM2" -> "RMS";
+"XM2" -> "Digip";
+"XM2" -> "Sharepoint";
+"iProcess" -> "XM2";
+"iProcess" -> "Informatica";
+"Informatica" -> "Vaultage";
+"Vaultage" -> "Qlikview";
+"XM2" -> "Qlikview";
+"SAP ISU" -> "XM2";
+"SAP CRM" -> "XM2";
+"SAP ISU" -> "Informatica";
+"SAP CRM" -> "Informatica";
+"Avaya" -> "Totalview";
+"Totalview" -> "PIF";
+"Totalview" -> "PIF";
+"XM2" -> "PIF";
+"iProcess" -> "PIF";
+"RMS" -> "SAS";
+"XM2" -> "ACL";
+"EDSN Gateway" -> "XM2";
+"XM2" -> "iProcess";
+"XM2" -> "Informatica";
+"Avaya" -> "PIF";
+"PIF" -> "Audit Base";
+"Digip" -> "PIF";
+"Sharepoint" -> "PIF";
+"Thinconnect" -> "PIF";
+"PIF" -> "Qlikview";
+"BPS Datawarehouse" -> "PIF";
+"RWE AD servers" -> "PIF";
+"TIJSS" -> "PIF";
+"Digip" -> "Qlikview";
+"EDSN Gateway" -> "Informatica";
+"TPM" -> "Informatica";
+"All4One" -> "Informatica";
+"Wasstraat" -> "RMS";
+
+}

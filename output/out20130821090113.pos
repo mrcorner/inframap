@@ -1,0 +1,33 @@
+digraph G {
+size="15,100"
+overlap=false;
+fontname="Myriad Condensed Web";
+splines=true;
+edge [fontname="Myriad Condensed Web", fontsize=8];
+node [shape=box, color=skyblue, fontname="Myriad Condensed Web"];
+"Aprimo";
+"RMS";
+"XM2";
+"Digip";
+"Sharepoint"[style = filled, color=grey70];
+"Qlikview";
+"iProcess"[style = filled, color=grey70];
+"SAP ISU"[style = filled, color=grey70];
+"SAP CRM"[style = filled, color=grey70];
+"Informatica";
+"Vaultage";
+"Avaya";
+"Totalview";
+"PIF";
+"SAS";
+"ACL"[style = filled, color=grey70];
+"EDSN Gateway"[style = filled, color=grey70];
+"Audit Base"[style = filled, color=grey70];
+"Thinconnect"[style = filled, color=grey70];
+"BPS Datawarehouse"[style = filled, color=grey70];
+"RWE AD servers"[style = filled, color=grey70];
+"TIJSS"[style = filled, color=grey70];
+"TPM"[style = filled, color=grey70];
+
+"RMS" -> "Aprimo;/n"XM2" -> "RMS;/n"XM2" -> "Digip;/n"XM2" -> "Sharepoint;/n"iProcess" -> "XM2;/n"iProcess" -> "Informatica;/n"Informatica" -> "Vaultage;/n"Vaultage" -> "Qlikview;/n"XM2" -> "Qlikview;/n"SAP ISU" -> "XM2;/n"SAP CRM" -> "XM2;/n"SAP ISU" -> "Informatica;/n"SAP CRM" -> "Informatica;/n"Avaya" -> "Totalview;/n"Totalview" -> "PIF;/n"Totalview" -> "PIF;/n"XM2" -> "PIF;/n"iProcess" -> "PIF;/n"RMS" -> "SAS;/n"XM2" -> "ACL;/n"EDSN Gateway" -> "XM2;/n"XM2" -> "iProcess;/n"XM2" -> "Informatica;/n"Avaya" -> "PIF;/n"PIF" -> "Audit Base;/n"Digip" -> "PIF;/n"Sharepoint" -> "PIF;/n"Thinconnect" -> "PIF;/n"PIF" -> "Qlikview;/n"BPS Datawarehouse" -> "PIF;/n"RWE AD servers" -> "PIF;/n"TIJSS" -> "PIF;/n"Digip" -> "Qlikview;/n"EDSN Gateway" -> "Informatica;/n"TPM" -> "Informatica;/n
+}

@@ -1,0 +1,68 @@
+digraph G {
+size="15,100"
+overlap=false;
+fontname="Myriad Condensed Web";
+splines=true;
+edge [fontname="Myriad Condensed Web", fontsize=8];
+node [shape=box, color=skyblue, fontname="Myriad Condensed Web"];
+"Aprimo";
+"RMS";
+"XM2";
+"Digip";
+"Sharepoint"[style = filled, color=grey70];
+"Qlikview";
+"iProcess"[style = filled, color=grey70];
+"SAP ISU"[style = filled, color=grey70];
+"SAP CRM"[style = filled, color=grey70];
+"Informatica";
+"Vaultage";
+"Avaya";
+"Totalview";
+"PIF";
+"SAS";
+"ACL"[style = filled, color=grey70];
+"EDSN Gateway"[style = filled, color=grey70];
+"Audit Base"[style = filled, color=grey70];
+"Thinconnect"[style = filled, color=grey70];
+"BPS Datawarehouse"[style = filled, color=grey70];
+"RWE AD servers"[style = filled, color=grey70];
+"TIJSS"[style = filled, color=grey70];
+"TPM"[style = filled, color=grey70];
+
+"RMS" -> "Aprimo"[style=dotted];
+"XM2" -> "RMS"[style=dotted];
+"XM2" -> "Digip"[colorscheme=dark28, color=1];
+"XM2" -> "Sharepoint"[style=dotted];
+"iProcess" -> "XM2"[style=dotted];
+"iProcess" -> "Informatica"[style=dotted];
+"Informatica" -> "Vaultage"[style=dotted];
+"Vaultage" -> "Qlikview"[style=dotted];
+"XM2" -> "Qlikview"[style=dotted];
+"SAP ISU" -> "XM2"[style=dotted];
+"SAP CRM" -> "XM2"[style=dotted];
+"SAP ISU" -> "Informatica"[style=dotted];
+"SAP CRM" -> "Informatica"[style=dotted];
+"Avaya" -> "Totalview"[style=dotted];
+"Totalview" -> "PIF"[colorscheme=dark28, color=1];
+"Totalview" -> "PIF"[colorscheme=dark28, color=1];
+"XM2" -> "PIF"[colorscheme=dark28, color=1];
+"iProcess" -> "PIF"[colorscheme=dark28, color=1];
+"RMS" -> "SAS"[style=dotted];
+"XM2" -> "ACL"[style=dotted];
+"EDSN Gateway" -> "XM2"[style=dotted];
+"XM2" -> "iProcess"[style=dotted];
+"XM2" -> "Informatica"[style=dotted];
+"Avaya" -> "PIF"[colorscheme=dark28, color=1];
+"PIF" -> "Audit Base"[colorscheme=dark28, color=1];
+"Digip" -> "PIF"[colorscheme=dark28, color=1];
+"Sharepoint" -> "PIF"[colorscheme=dark28, color=1];
+"Thinconnect" -> "PIF"[colorscheme=dark28, color=1];
+"PIF" -> "Qlikview"[colorscheme=dark28, color=1];
+"BPS Datawarehouse" -> "PIF"[colorscheme=dark28, color=1];
+"RWE AD servers" -> "PIF"[colorscheme=dark28, color=1];
+"TIJSS" -> "PIF"[colorscheme=dark28, color=1];
+"Digip" -> "Qlikview"[style=dotted];
+"EDSN Gateway" -> "Informatica"[style=dotted];
+"TPM" -> "Informatica"[style=dotted];
+
+}

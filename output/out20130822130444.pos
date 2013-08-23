@@ -1,0 +1,86 @@
+digraph G {
+size="15,100"
+overlap=false;
+fontname="Myriad Condensed Web";
+splines=true;
+edge [fontname="Myriad Condensed Web", fontsize=8];
+node [shape=box, color=skyblue, fontname="Myriad Condensed Web" fontsize=10];
+{
+node [shape=plaintext, fontsize=16];
+Source -> ETL -> Database -> Application -> Presentation;
+}
+"RMS";
+"XM2";
+"Digip";
+"Sharepoint"[style = filled, color=grey70];
+"Qlikview";
+"iProcess"[style = filled, color=grey70];
+"SAP ISU"[style = filled, color=grey70];
+"SAP CRM"[style = filled, color=grey70];
+"Informatica";
+"Vaultage";
+"Avaya";
+"Totalview";
+"PIF";
+"SAS";
+"ACL"[style = filled, color=grey70];
+"EDSN Gateway"[style = filled, color=grey70];
+"Audit Base"[style = filled, color=grey70];
+"Thinconnect"[style = filled, color=grey70];
+"BPS DWH"[style = filled, color=grey70];
+"RWE AD servers"[style = filled, color=grey70];
+"TIJSS"[style = filled, color=grey70];
+"TPM"[style = filled, color=grey70];
+"All4One"[style = filled, color=grey70];
+"Wasstraat"[style = filled, color=grey70];
+
+{ rank=same; Source;  "iProcess";  "SAP ISU";  "SAP CRM";  "Avaya";  "EDSN Gateway";  "Thinconnect";  "BPS DWH";  "RWE AD servers";  "TIJSS";  "TPM";  "All4One";  "Wasstraat"; 
+}
+{ rank=same; ETL;  "XM2";  "Informatica"; 
+}
+{ rank=same; Database;  "RMS";  "Vaultage"; 
+}
+{ rank=same; Application;  "Digip";  "Totalview";  "PIF";  "SAS";  "ACL";  "Audit Base"; 
+}
+{ rank=same; Presentation;  "Sharepoint";  "Qlikview"; 
+}
+"RMS" -> "Aprimo"[colorscheme=set19, color=9];
+"XM2" -> "RMS"[colorscheme=set19, color=9];
+"XM2" -> "Digip"[colorscheme=set19, color=5];
+"XM2" -> "Sharepoint"[colorscheme=set19, color=9];
+"iProcess" -> "XM2"[colorscheme=set19, color=9];
+"iProcess" -> "Informatica"[colorscheme=set19, color=9];
+"Informatica" -> "Vaultage"[colorscheme=set19, color=9];
+"Vaultage" -> "Qlikview"[colorscheme=set19, color=9];
+"XM2" -> "Qlikview"[colorscheme=set19, color=9];
+"SAP ISU" -> "XM2"[colorscheme=set19, color=9];
+"SAP CRM" -> "XM2"[colorscheme=set19, color=9];
+"SAP ISU" -> "Informatica"[colorscheme=set19, color=9];
+"SAP CRM" -> "Informatica"[colorscheme=set19, color=9];
+"Avaya" -> "Totalview"[colorscheme=set19, color=9];
+"Totalview" -> "PIF"[colorscheme=set19, color=6];
+"Totalview" -> "PIF"[colorscheme=set19, color=6];
+"XM2" -> "PIF"[colorscheme=set19, color=5];
+"iProcess" -> "PIF"[colorscheme=set19, color=1];
+"RMS" -> "SAS"[colorscheme=set19, color=9];
+"XM2" -> "ACL"[colorscheme=set19, color=9];
+"EDSN Gateway" -> "XM2"[colorscheme=set19, color=9];
+"XM2" -> "iProcess"[colorscheme=set19, color=9];
+"XM2" -> "Informatica"[colorscheme=set19, color=9];
+"Avaya" -> "PIF"[colorscheme=set19, color=5];
+"PIF" -> "Audit Base"[colorscheme=set19, color=6];
+"Digip" -> "PIF"[colorscheme=set19, color=5];
+"Sharepoint" -> "PIF"[colorscheme=set19, color=5];
+"Thinconnect" -> "PIF"[colorscheme=set19, color=6];
+"PIF" -> "Qlikview"[colorscheme=set19, color=5];
+"BPS DWH" -> "PIF"[colorscheme=set19, color=5];
+"RWE AD servers" -> "PIF"[colorscheme=set19, color=6];
+"TIJSS" -> "PIF"[colorscheme=set19, color=3];
+"Digip" -> "Qlikview"[colorscheme=set19, color=9];
+"EDSN Gateway" -> "Informatica"[colorscheme=set19, color=9];
+"TPM" -> "Informatica"[colorscheme=set19, color=9];
+"All4One" -> "Informatica"[colorscheme=set19, color=9];
+"Wasstraat" -> "RMS"[colorscheme=set19, color=9];
+"PIF" -> "Digip"[colorscheme=set19, color=6];
+
+}

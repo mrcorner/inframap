@@ -1,0 +1,23 @@
+digraph G {
+overlap=false;
+fontname="Myriad Condensed Web";
+splines=true;
+edge [fontname="Myriad Condensed Web", fontsize=8];
+node [shape=box, color=skyblue, fontname="Myriad Condensed Web"];
+node Name;
+node Aprimo;
+node RMS;
+node XM2;
+node Digip;
+node Sharepoint;
+node Qlikview;
+node iProcess;
+node SAP ISU;
+node SAP CRM;
+
+1 -> Aprimo;
+2 -> RMS;
+4 -> Digip;
+5 -> Sharepoint;
+
+}
