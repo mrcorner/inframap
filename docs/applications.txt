@@ -1,26 +1,26 @@
 1	Yes	Aprimo	Yes	8.8.9	Aprimo	No	TAP	na	W2K8R2	ORA11	3	10	na	2		Yes	Application	
-2	Yes	RMS	No	na	na	Yes	OTAP	na	W2K3SP4	ORA10	1	140	8000	4	Gold	No	Database	
+2	Yes	RMS	No	na	na	Yes	OTAP	na	W2K3SP4	ORA10	1	140	8000	4	Gold	No	Datawarehouse	
 3	Yes	XM2	No	na	na	Yes	OAP	na	Linux	ORA11	1	30	4650	4	Silver	No	ETL	check storage
 4	Yes	Digip	na	na	na	Yes	AP	AP1401	W2K3SP4	SQLServer2005	2	500	5000	4	Silver	No	Application	
-5	No	Sharepoint	na	na	na	na	na	na	na	na	na	na	na	na			Presentation	
+5	No	Sharepoint															Presentation	
 6	Yes	Qlikview	Yes	na	Qlikview	na	AP	na	W2K8	na	na	1200	2000	8	Silver		Presentation	
-7	No	iProcess	na	na	na	na	na	na	na	na	na	na	na	na			Source	
-8	No	SAP ISU	na	na	na	na	na	na	na	na	na	na	na	na			Source	
-9	No	SAP CRM	na	na	na	na	na	na	na	na	na	na	na	na			Source	
+7	No	iProcess															Source	
+8	No	SAP ISU															Source	
+9	No	SAP CRM															Source	
 10	Yes	Informatica	Yes	na	Informatica	na	(OT)A(Ppre)	na	RedHat	na	1	na	1000	na	Gold	No	ETL	Ook Silver? SSD storage
-11	Yes	Vaultage	No	na	na	Yes	(OT)A(Ppre)	na	RedHat	ORA11	1	na	41000	na	Silver	No	Database	Oracle RAC / 30Tb?
+11	Yes	Vaultage	No	na	na	Yes	(OT)A(Ppre)	na	RedHat	ORA11	1	na	41000	na	Silver	No	Datawarehouse	Oracle RAC / 30Tb?
 12	Yes	Avaya	na	na	na	na	na	na	na	na	na	na	na	na			Source	
 13	Yes	Totalview	na	na	na	na	na	na	na	na	na	na	na	na		Yes	Application	
 14	Yes	PIF	No	na	na	Yes	(OT)AP	AP1085	W2K8R2	SQLServer2000, SQLServer2008	4	1200	8000	4	Silver	No	Application	OT vm, A, P bm
 15	Yes	SAS	na	na	na	na	na	na	na	na	na	na	1400	2	Silver		Application	
-16	No	ACL	na	na	na	na	na	na	na	na	na	na	na	na			Application	
-17	No	EDSN Gateway	na	na	na	na	na	na	na	na	na	na	na	na			Source	
-18	No	Audit Base	na	na	na	na	na	na	na	na	na	na	na	na			Application	
-19	No	Thinconnect	na	na	na	na	na	na	na	na	na	na	na	na			Source	
-20	No	BPS DWH	na	na	na	na	na	na	na	na	na	na	na	na			Source	
-21	No	RWE AD servers	na	na	na	na	na	na	na	na	na	na	na	na			Source	
-22	No	TIJSS	na	na	na	na	na	na	na	na	na	na	na	na			Source	
-23	No	TPM	na	na	na	na	na	na	na	na	na	na	na	na			Source	
-24	No	All4One	na	na	na	na	na	na	na	na	na	na	na	na			Source	
+16	No	ACL															Application	
+17	No	EDSN Gateway															Source	
+18	No	Audit Base															Application	
+19	No	Thinconnect															Source	
+20	No	BPS DWH															Datawarehouse	
+21	No	RWE AD servers															Source	
+22	No	TIJSS															Source	
+23	No	TPM															Source	
+24	No	All4One															Source	
 25	Yes	Wasstraat	na	na	na	na	na	na	na	na	na	na	na	na			Source	
-26	Yes	RMS Portal	na	na	na	na	na	na	na	na	na	na	na	na			Presentation	
+27	No	mail.essent.nl															Application	

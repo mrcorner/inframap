@@ -2,8 +2,8 @@
 2	3	XM2	2	RMS	No	DBRead			
 3	3	XM2	4	Digip	No	Fileshare		2000	
 4	7	iProcess	3	XM2	No	RFC			
-5	7	iProcess	10	Informatica	No	na			
-6	10	Informatica	11	Vaultage	No	na			
+5	7	iProcess	10	Informatica	No	na		1000	
+6	10	Informatica	11	Vaultage	No	Database		100000	
 7	11	Vaultage	6	Qlikview	No	na			
 8	3	XM2	6	Qlikview	No	DBRead			
 9	8	SAP ISU	3	XM2	No	Database		125000	
@@ -38,3 +38,4 @@
 38	14	PIF	7	iProcess	No	Adapter		50	
 39	14	PIF	5	Sharepoint	No	Database			
 40	14	PIF	2	RMS	No	Database		50	
+41	2	RMS	27	mail.essent.nl	No	RFC		5	
