@@ -1,0 +1,6 @@
+1	1	Aprimo	Yes	2	1	4				X	SWESR117	Application						
+2	1	Aprimo	Yes	2	1	4				X	SWESR118	Webserver						
+3	1	Aprimo	Yes	2	1	4				X	SWESR119	Webserver						
+4	1	Aprimo	Yes	4	6	256				X	SUESZ158	Oracle RAC	CI 1018913	650248				
+5	1	Aprimo	Yes	4	6	256				X	SUESZ159	Oracle RAC	CI 1018914	99B8406				
+6	1	Aprimo	Yes	4	6	256				X	SUESZ160	Oracle RAC	CI 1018915	650465				
