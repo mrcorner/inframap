@@ -1,15 +1,21 @@
-
+$def with (backurl)
 
 <html>
+
     <head>
+    	<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+		<META HTTP-EQUIV="Expires" CONTENT="-1">
         <title>Infrastructure map</title>
         <link rel="stylesheet" type="text/css" href="static/styles.css">
     </head>
     
     
 <body>
-<embed src="static/out.svg" type="image/svg+xml">
-
+<embed src="static/out.svg" type="image/svg+xml" height="80%">
+<!--<object data="static/out.svg" type="image/svg+xml"></object>-->
+<!--<iframe src="static/out.svg" width="100%" height="100%"></iframe>-->
+$if backurl == 1:
+	<br><a href="http://localhost:8080/">back</a>
 
 </body>
 </html>

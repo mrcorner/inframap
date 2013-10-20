@@ -158,22 +158,24 @@ def generateServerLevelPos(focusapplicationID):
 	#all application servers to database servers
 
 	for server in listServers:
-		if server.function == "Webserver" and server.AppID == focusapplicationID:
+		if server.function == "Application" and server.AppID == focusapplicationID:
+			for toserver in listServers:
+				if toserver.function == "Webserver" and toserver.AppID == focusapplicationID:
+					posfilestring = posfilestring + '"' + server.tag() + '" -> "' + toserver.tag() + '";\n'		
+
+	
+	for server in listServers:
+		if (server.function == "Database" or server.function == "Oracle RAC") and server.AppID == focusapplicationID:
 			for toserver in listServers:
 				if toserver.function == "Application" and toserver.AppID == focusapplicationID:
-					posfilestring = posfilestring + '"' + toserver.tag() + '" -> "' + server.tag() + '";\n'		
+					posfilestring = posfilestring + '"' + server.tag() + '" -> "' + toserver.tag() + '";\n'					
 
 	for server in listServers:
-		if server.function == "Application" and server.AppID == focusapplicationID:
-			for toserver in listServers:
-				if toserver.function == "Oracle RAC" and toserver.AppID == focusapplicationID:
-					posfilestring = posfilestring + '"' + toserver.tag() + '" -> "' + server.tag() + '";\n'
-
-	for server in listServers:
-		if server.function == "Application" and server.AppID == focusapplicationID:
+		if server.function == "Sattelite" and server.AppID == focusapplicationID:
 			for toserver in listServers:
 				if toserver.function == "Database" and toserver.AppID == focusapplicationID:
-					posfilestring = posfilestring + '"' + toserver.tag() + '" -> "' + server.tag() + '";\n'					
+					posfilestring = posfilestring + '"' + server.tag() + '" -> "' + toserver.tag() + '";\n'					
+
 
 			
 	#add outside connections
@@ -181,14 +183,14 @@ def generateServerLevelPos(focusapplicationID):
 		if interface.toID == focusapplicationID:
 			for app in listApplications:
 				if app.ID == interface.fromID:
-					posfilestring = posfilestring + '"' + app.name + '" [style = filled, color="#999999" fontsize=6 height=0.2];\n'
+					posfilestring = posfilestring + '"' + app.name + '" [style = filled, color="#999999" fontsize=8 height=0.2];\n'
 					posfilestring = posfilestring + '"' + app.name + '" -> "' + firstservertag + '";\n'
 
 	for interface in listInterfaces:
 		if interface.fromID == focusapplicationID:
 			for app in listApplications:
 				if app.ID == interface.toID:
-					posfilestring = posfilestring + '"' + app.name + '" [style = filled, color="#999999" fontsize=6 height=0.2];\n'					
+					posfilestring = posfilestring + '"' + app.name + '" [style = filled, color="#999999" fontsize=8 height=0.2];\n'					
 					posfilestring = posfilestring + '"' +  firstservertag + '" -> "' +  app.name + '";\n'
 
 	#close graph
@@ -316,15 +318,17 @@ class Index(object):
     	global listInterfaces
     	global focusapp
     	a = readfiles()
+    	backurl = 0
 
     	form = web.input(focusapp="none")
     	print form.focusapp
     	if form.focusapp == "none":
     		system("dot -Tsvg -ostatic/out.svg " + generatePosFile("none", "throughput", "none"))
     	else:
-    		system("dot -Tsvg -ostatic/out.svg " + generateServerLevelPos(int(form.focusapp)))	
+    		system("dot -Tsvg -ostatic/out.svg " + generateServerLevelPos(int(form.focusapp)))
+    		backurl = 1
 
-    	return render.index()
+    	return render.index(backurl=backurl)
         
     def POST(self):
     	form=web.input(mode="overview", nodecolor="none", edgecolor="none", edgewidth="none")
