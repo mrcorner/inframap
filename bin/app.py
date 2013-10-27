@@ -40,8 +40,10 @@ def readfiles():
 		if rowx[intlegend.index('SourceName')].value != "":
 			interface = nInterface(rowx[intlegend.index('ID')].value, 
 							   	   rowx[intlegend.index('SourceApp')].value, 
+							   	   rowx[intlegend.index('SourceServer')].value,
 							   	   rowx[intlegend.index('SourceName')].value, 
-							   	   rowx[intlegend.index('TargetApp')].value, 
+							   	   rowx[intlegend.index('TargetApp')].value,
+							   	   rowx[intlegend.index('TargetServer')].value, 
 							   	   rowx[intlegend.index('TargetName')].value, 
 							       rowx[intlegend.index('Throughput Day')].value, 
 							       rowx[intlegend.index('Type')].value, 
@@ -127,7 +129,8 @@ def generateServerLevelPos(focusapplicationID):
 	#applications and interfaces should be present
 	#generates .pos file with timestamp, returns filename
 	
-	findBiDirectionalEdges()
+	#findBiDirectionalEdges()
+	#removed - detailed picture should show all interfaces
 
 	timestamp = time.strftime("%Y%m%d%H%M%S", time.gmtime())
 	#print("Timestamp generated: " + timestamp)
@@ -171,7 +174,7 @@ def generateServerLevelPos(focusapplicationID):
 					posfilestring = posfilestring + '"' + server.tag() + '" -> "' + toserver.tag() + '";\n'					
 
 	for server in listServers:
-		if server.function == "Sattelite" and server.AppID == focusapplicationID:
+		if (server.function == "Sattelite" or server.function == "Webserver") and server.AppID == focusapplicationID:
 			for toserver in listServers:
 				if toserver.function == "Database" and toserver.AppID == focusapplicationID:
 					posfilestring = posfilestring + '"' + server.tag() + '" -> "' + toserver.tag() + '";\n'					
@@ -180,18 +183,26 @@ def generateServerLevelPos(focusapplicationID):
 			
 	#add outside connections
 	for interface in listInterfaces:
-		if interface.toID == focusapplicationID:
+		if interface.toAppID == focusapplicationID:
+			thisservertag = firstservertag
+			for server in listServers:
+				if server.ID == interface.toServerID:
+					thisservertag = server.tag()
 			for app in listApplications:
-				if app.ID == interface.fromID:
+				if app.ID == interface.fromAppID:
 					posfilestring = posfilestring + '"' + app.name + '" [style = filled, color="#999999" fontsize=8 height=0.2];\n'
-					posfilestring = posfilestring + '"' + app.name + '" -> "' + firstservertag + '";\n'
+					posfilestring = posfilestring + '"' + app.name + '" -> "' + thisservertag + '"[color="#00FF00"];\n'
 
 	for interface in listInterfaces:
-		if interface.fromID == focusapplicationID:
+		if interface.fromAppID == focusapplicationID:
+			thisservertag = firstservertag
+			for server in listServers:
+				if server.ID == interface.fromServerID:
+					thisservertag = server.tag()			
 			for app in listApplications:
-				if app.ID == interface.toID:
+				if app.ID == interface.toAppID:
 					posfilestring = posfilestring + '"' + app.name + '" [style = filled, color="#999999" fontsize=8 height=0.2];\n'					
-					posfilestring = posfilestring + '"' +  firstservertag + '" -> "' +  app.name + '";\n'
+					posfilestring = posfilestring + '"' +  thisservertag + '" -> "' +  app.name + '"[color="#FF0000"];\n'
 
 	#close graph
 	posfilestring = posfilestring + "\n}\n"
@@ -211,12 +222,14 @@ def findBiDirectionalEdges():
 	for interface in listInterfaces:
 		for interfacecompare in listInterfaces:
 			if interface.ID != interfacecompare.ID:
-				if interface.toID == interfacecompare.toID and interface.fromID == interfacecompare.fromID:
+				if interface.toAppID == interfacecompare.toAppID and interface.fromAppID == interfacecompare.fromAppID:
 					interface.throughput = interface.throughput + interfacecompare.throughput
 					listInterfaces.remove(interfacecompare)
-				if interface.toID == interfacecompare.fromID and interface.fromID == interfacecompare.toID:	
+				if interface.toAppID == interfacecompare.fromAppID and interface.fromAppID == interfacecompare.toAppID:	
+					listInterfaces.remove(interface)
 					interface.bidirectional = "Yes"
 					interface.throughput = interface.throughput + interfacecompare.throughput
+					listInterfaces.append(interface)
 					listInterfaces.remove(interfacecompare)
 
 
@@ -241,11 +254,19 @@ class nServer(object):
 		
 class nInterface(object):
 	#20130823 changed color functions, added label function, added bidirectional tag
-	def __init__(self, ID, fromID, fromName, toID, toName, throughput, itype, bidirectional):
+	def __init__(self, ID, fromAppID, fromServerID, fromName, toAppID, toServerID, toName, throughput, itype, bidirectional):
 		self.ID = int(ID)
-		self.fromID = int(fromID)
+		self.fromAppID = int(fromAppID)
+		if fromServerID != '':
+			self.fromServerID = int(fromServerID)
+		else:
+			self.fromServerID = 0
 		self.fromName = fromName
-		self.toID = int(toID)
+		self.toAppID = int(toAppID)
+		if toServerID != '':
+			self.toServerID = int(toServerID)
+		else:
+			self.toServerID = 0
 		self.toName = toName
 		self.bidirectional = bidirectional
 		if throughput <> "":
