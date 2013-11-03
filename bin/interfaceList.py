@@ -136,7 +136,7 @@ def generateServerLevelPos(focusapplicationID):
 	timestamp = time.strftime("%Y%m%d%H%M%S", time.gmtime())
 	#print("Timestamp generated: " + timestamp)
 	
-	posfilestring = 'digraph G {\nsize="15,20";\n overlap=true;\ncompound=true;\nfontname="Myriad Condensed Web";\nsplines=true;\nedge [fontname="Myriad Condensed Web", fontsize=8];\nnode [shape=box, color=skyblue, fontname="Myriad Condensed Web", arrowsize=0.8, fontsize=10];\n'
+	posfilestring = 'digraph G {overlap=false;\ncompound=true;\nfontname="Myriad Condensed Web";\nsplines=true;\nedge [fontname="Myriad Condensed Web", fontsize=8];\nnode [shape=box, color=skyblue, fontname="Myriad Condensed Web", arrowsize=0.8, fontsize=10];\n'
 	
 	posfilestring = posfilestring + 'subgraph cluster_0 {\nstyle=filled;\ncolor=lightgrey;\nnode [style=filled,color=white];\n'
 
@@ -165,20 +165,20 @@ def generateServerLevelPos(focusapplicationID):
 		if server.function == "Application" and server.AppID == focusapplicationID:
 			for toserver in listServers:
 				if toserver.function == "Webserver" and toserver.AppID == focusapplicationID:
-					posfilestring = posfilestring + '"' + server.tag() + '" -> "' + toserver.tag() + '"[weight=100];\n'		
+					posfilestring = posfilestring + '"' + server.tag() + '" -> "' + toserver.tag() + '";\n'		
 
 	
 	for server in listServers:
 		if (server.function == "Database" or server.function == "Oracle RAC") and server.AppID == focusapplicationID:
 			for toserver in listServers:
 				if toserver.function == "Application" and toserver.AppID == focusapplicationID:
-					posfilestring = posfilestring + '"' + server.tag() + '" -> "' + toserver.tag() + '"[weight=100];\n'					
+					posfilestring = posfilestring + '"' + server.tag() + '" -> "' + toserver.tag() + '";\n'					
 
 	for server in listServers:
 		if (server.function == "Sattelite" or server.function == "Webserver") and server.AppID == focusapplicationID:
 			for toserver in listServers:
 				if toserver.function == "Database" and toserver.AppID == focusapplicationID:
-					posfilestring = posfilestring + '"' + server.tag() + '" -> "' + toserver.tag() + '"[weight=100];\n'					
+					posfilestring = posfilestring + '"' + server.tag() + '" -> "' + toserver.tag() + '";\n'					
 
 
 			
@@ -214,91 +214,8 @@ def generateServerLevelPos(focusapplicationID):
 	
 	return "output/out"+timestamp+".pos"
 
-def htmloutput(appfocus):
-
-	htmlstring = '<html><head><title>Infrastructure map</title>'
 
 
-
-	#htmlstring = htmlstring + '<script language="JavaScript" type="text/javascript"><!-- function breakout_of_frame() { if (top.location != location) { top.location.href = document.location.href ; } } --> </script>'
-	htmlstring = htmlstring + '<STYLE type="text/css">'
-	htmlstring = htmlstring + 'table{ font-size: 10px; font-family: verdana; background: #fff; border: solid black}'
-	htmlstring = htmlstring + 'tr#header { background: #999;}'
-	htmlstring = htmlstring + '</style></head>'
-	htmlstring = htmlstring + '<body onload="if (top.location != location) { top.location.href = document.location.href ; }"><embed src="static/out.svg" type="image/svg+xml"/>'
-
-	if appfocus != "none":
-		#print outgoing interfaces
-		htmlstring = htmlstring + '<br>Outgoing data:<br><table border="1"><tr id="header"><td>#</td><td>SourceName</td><td>SourceServer</td><td>TargetName</td><td>TargetServer</td><td>Protocol</td><td>Throughput</td></tr>'
-
-		counter = 0
-		for interface in listInterfaces:
-			outSServer = ""
-			outTServer = ""
-			if interface.fromAppID == appfocus:
-				for server in listServers:
-					if server.ID == interface.fromServerID:
-						outSServer = server.hostname
-					if server.ID == interface.toServerID:
-						outTServer = server.hostname
-				counter = counter + 1
-				htmlstring = htmlstring + ('<tr><td>%02d' % counter + "</td><td>" + 
-			   		interface.fromName + "</td><td>" + 
-			   		outSServer + "</td><td>" +
-			   		interface.toName + "</td><td>" +
-			   		outTServer + "</td><td>" +
-			   		interface.protocol + "</td><td>" +
-			   		"%02d" % interface.throughput + '</td></tr>')
-
-		htmlstring = htmlstring + '</table><br>'
-
-
-		htmlstring = htmlstring + 'Incoming data:<br><table border="1"><tr id="header"><td>#</td><td>SourceName</td><td>SourceServer</td><td>TargetName</td><td>TargetServer</td><td>Protocol</td><td>Throughput</td></tr>'
-		#counter = 0
-		for interface in listInterfaces:
-			outSServer = ""
-			outTServer = ""
-			if interface.toAppID == appfocus:
-				for server in listServers:
-					if server.ID == interface.fromServerID:
-						outSServer = server.hostname
-					if server.ID == interface.toServerID:
-						outTServer = server.hostname
-				counter = counter + 1
-				htmlstring = htmlstring + ('<tr><td>%02d' % counter + "</td><td>" + 
-			   		interface.fromName + "</td><td>" + 
-			   		outSServer + "</td><td>" +
-			   		interface.toName + "</td><td>" +
-			   		outTServer + "</td><td>" +
-			   		interface.protocol + "</td><td>" +
-			   		"%02d" % interface.throughput + '</td></tr>')
-
-		htmlstring = htmlstring + '</table><br><br><a href="http://localhost:8080/">Back</a>'
-
-	htmlstring = htmlstring + '</body></html>'
-
-	return htmlstring
-
-
-
-
-def findBiDirectionalEdges():
-	global listInterfaces
-	#remove double interfaces; add troughputs
-	#if from -> to and to -> from exist, remove one and make remaining bidirectional
-
-	for interface in listInterfaces:
-		for interfacecompare in listInterfaces:
-			if interface.ID != interfacecompare.ID:
-				if interface.toAppID == interfacecompare.toAppID and interface.fromAppID == interfacecompare.fromAppID:
-					interface.throughput = interface.throughput + interfacecompare.throughput
-					listInterfaces.remove(interfacecompare)
-				if interface.toAppID == interfacecompare.fromAppID and interface.fromAppID == interfacecompare.toAppID:	
-					listInterfaces.remove(interface)
-					interface.bidirectional = "Yes"
-					interface.throughput = interface.throughput + interfacecompare.throughput
-					listInterfaces.append(interface)
-					listInterfaces.remove(interfacecompare)
 
 
 class nApplication(object):
@@ -388,49 +305,58 @@ class nInterface(object):
 		
 	
 
-urls = (
-  '/', 'Index'
-)
+
+import sys
+
+appFilter = sys.argv[1]
 
 listApplications = []
 listInterfaces = []
 listServers = []
 
-app = web.application(urls, globals())
 
-render = web.template.render('templates/')
+readfiles()
+
+#print outgoing interfaces
+print("#\tSourceName\tSourceServer\tTargetName\tTargetServer\tProtocol \tThroughput")
+counter = 0
+for interface in listInterfaces:
+	outSServer = ""
+	outTServer = ""
+	if interface.fromName == appFilter:
+		for server in listServers:
+			if server.ID == interface.fromServerID:
+				outSServer = server.hostname
+			if server.ID == interface.toServerID:
+				outTServer = server.hostname
+		counter = counter + 1
+		print (str(counter) + "\t" + 
+			   interface.fromName + "\t" + 
+			   outSServer + "\t" +
+			   interface.toName + "\t" +
+			   outTServer + "\t" +
+			   interface.protocol + "\t" +
+			   "%02d" % interface.throughput)
+print(" ")
+print("#\tSourceName\tSourceServer\tTargetName\tTargetServer\tProtocol \tThroughput")
+counter = 0
+for interface in listInterfaces:
+	outSServer = ""
+	outTServer = ""
+	if interface.toName == appFilter:
+		for server in listServers:
+			if server.ID == interface.fromServerID:
+				outSServer = server.hostname
+			if server.ID == interface.toServerID:
+				outTServer = server.hostname
+		counter = counter + 1
+		print (str(counter) + "\t" + 
+			   interface.fromName + "\t" + 
+			   outSServer + "\t" +
+			   interface.toName + "\t" +
+			   outTServer + "\t" +
+			   interface.protocol + "\t" +
+			   "%02d" % interface.throughput)		
+		
 
 
-
-class Index(object):
-    def GET(self):
-    	global listApplications
-    	global listInterfaces
-    	global focusapp
-    	a = readfiles()
-    	backurl = "<b>Hello</b>"
-
-    	form = web.input(focusapp="none")
-    	print form.focusapp
-    	if form.focusapp == "none":
-    		system("dot -Tsvg -ostatic/out.svg " + generatePosFile("none", "throughput", "none"))
-    		return htmloutput("none")
-    	else:
-    		system("dot -Tsvg -ostatic/out.svg " + generateServerLevelPos(int(form.focusapp)))
-    		return htmloutput(int(form.focusapp))
-
-    	
-        
-    def POST(self):
-    	form=web.input(mode="overview", nodecolor="none", edgecolor="none", edgewidth="none")
-    	
-    	a = readfiles()
-    	system("dot -Tsvg -ostatic/out.svg " + generatePosFile(form.nodecolor, form.edgecolor, form.edgewidth))
-    	system("dot -Tpdf -ostatic/out.pdf " + generatePosFile(form.nodecolor, form.edgecolor, form.edgewidth))
-    	return render.index()
-    	
-
-if __name__ == "__main__":
-    app.run()
-    
-    
