@@ -48,6 +48,7 @@ def readfiles():
 							       rowx[intlegend.index('Throughput Day')].value, 
 							       rowx[intlegend.index('Type')].value, 
 							       rowx[intlegend.index('BiDirectional')].value,
+							       rowx[intlegend.index('Function')].value,							       
 							       rowx[intlegend.index('Detail type')].value)
 			if listInterfaces.count(interface) == 0:
 				listInterfaces.append(interface)
@@ -224,12 +225,13 @@ def htmloutput(appfocus):
 	htmlstring = htmlstring + '<STYLE type="text/css">'
 	htmlstring = htmlstring + 'table{ font-size: 10px; font-family: verdana; background: #fff; border: solid black}'
 	htmlstring = htmlstring + 'tr#header { background: #999;}'
+	htmlstring = htmlstring + 'body { font-size: 12px; font-family: verdana;}'
 	htmlstring = htmlstring + '</style></head>'
 	htmlstring = htmlstring + '<body onload="if (top.location != location) { top.location.href = document.location.href ; }"><embed src="static/out.svg" type="image/svg+xml"/>'
 
 	if appfocus != "none":
 		#print outgoing interfaces
-		htmlstring = htmlstring + '<br>Outgoing data:<br><table border="1"><tr id="header"><td>#</td><td>SourceName</td><td>SourceServer</td><td>TargetName</td><td>TargetServer</td><td>Protocol</td><td>Throughput</td></tr>'
+		htmlstring = htmlstring + '<br>Outgoing data:<br><table width="800" border="1"><tr id="header"><td>#</td><td>SourceName</td><td>SourceServer</td><td>TargetName</td><td>TargetServer</td><td>Protocol</td><td>Throughput</td></tr>'
 
 		counter = 0
 		for interface in listInterfaces:
@@ -253,7 +255,7 @@ def htmloutput(appfocus):
 		htmlstring = htmlstring + '</table><br>'
 
 
-		htmlstring = htmlstring + 'Incoming data:<br><table border="1"><tr id="header"><td>#</td><td>SourceName</td><td>SourceServer</td><td>TargetName</td><td>TargetServer</td><td>Protocol</td><td>Throughput</td></tr>'
+		htmlstring = htmlstring + 'Incoming data:<br><table width="800" border="1"><tr id="header"><td>#</td><td>SourceName</td><td>SourceServer</td><td>TargetName</td><td>TargetServer</td><td>Protocol</td><td>Throughput</td></tr>'
 		#counter = 0
 		for interface in listInterfaces:
 			outSServer = ""
@@ -273,7 +275,23 @@ def htmloutput(appfocus):
 			   		interface.protocol + "</td><td>" +
 			   		"%02d" % interface.throughput + '</td></tr>')
 
-		htmlstring = htmlstring + '</table><br><br><a href="http://localhost:8080/">Back</a>'
+		htmlstring = htmlstring + '</table><br><br>'
+
+		#repeat, list legenda for interfaces
+		counter = 0
+		
+		for interface in listInterfaces:
+			if interface.fromAppID == appfocus:
+				counter = counter + 1
+				htmlstring = htmlstring + '%02d' % counter + ". " + interface.interfacefunction + "<br>"		
+
+		for interface in listInterfaces:
+			if interface.toAppID == appfocus:
+				counter = counter + 1
+				htmlstring = htmlstring + '%02d' % counter + ". " + interface.interfacefunction + "<br>"	
+
+
+		htmlstring = htmlstring + '<br><br><a href="http://localhost:8080/">Back</a>'
 
 	htmlstring = htmlstring + '</body></html>'
 
@@ -322,7 +340,7 @@ class nServer(object):
 		
 class nInterface(object):
 	#20130823 changed color functions, added label function, added bidirectional tag
-	def __init__(self, ID, fromAppID, fromServerID, fromName, toAppID, toServerID, toName, throughput, itype, bidirectional, protocol):
+	def __init__(self, ID, fromAppID, fromServerID, fromName, toAppID, toServerID, toName, throughput, itype, bidirectional, interfacefunction, protocol):
 		self.ID = int(ID)
 		self.fromAppID = int(fromAppID)
 		if fromServerID != '':
@@ -343,6 +361,7 @@ class nInterface(object):
 			self.throughput = 0
 		self.itype = itype
 		self.protocol = protocol
+		self.interfacefunction = interfacefunction
 		
 	def edgecolortagthroughput(self):
 		if self.throughput == 0:
