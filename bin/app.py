@@ -66,7 +66,9 @@ def readfiles():
 			server = nServer(rowx[serlegend.index('ServerID')].value, 
 							 rowx[serlegend.index('AppID')].value,
 							 rowx[serlegend.index('Functie')].value,
-							 rowx[serlegend.index('Hostname')].value)
+							 rowx[serlegend.index('Hostname')].value,
+							 rowx[serlegend.index('App name')].value,
+							 rowx[serlegend.index('Scope')].value)
 			if listServers.count(server) == 0:
 				listServers.append(server)
 	
@@ -124,6 +126,41 @@ def generatePosFile(nodecolor, edgecolor, edgewidth):
 	
 	return "output/out"+timestamp+".pos"
 	
+def generateAllServerPos():
+	global listApplications
+	global listInterfaces
+	global listServers
+
+	timestamp = time.strftime("%Y%m%d%H%M%S", time.gmtime())
+
+	posfilestring = 'digraph G {\n\n overlap=true;\ncompound=true;\nfontname="Myriad Condensed Web";\nsplines=true;\nedge [fontname="Myriad Condensed Web", fontsize=8];\nnode [shape=box, color=skyblue, fontname="Myriad Condensed Web", arrowsize=0.8, fontsize=10];\n'
+
+	for server in listServers:
+		if server.inscope == "Yes":
+			posfilestring = posfilestring + '"' + server.apptag() + '";\n'
+		else:
+			posfilestring = posfilestring + '"' + server.apptag() + '" [style = filled, color="'+ colp(8) +'"];\n'
+
+	for interface in listInterfaces:
+		serveronetag = "Error"
+		servertwotag = "Error"
+		for serverone in listServers:
+			if serverone.ID == interface.fromServerID:
+				serveronetag = serverone.apptag()
+		for servertwo in listServers:
+			if servertwo.ID == interface.toServerID:
+				servertwotag = servertwo.apptag()				
+
+		posfilestring = posfilestring + '"' + serveronetag + '" -> "' + servertwotag + '";\n'
+
+	posfilestring = posfilestring + "\n}\n"
+	
+	posfile = open("output/out"+timestamp+".pos",'w+')
+	posfile.write(posfilestring)
+	posfile.close()
+	
+	return "output/out"+timestamp+".pos"
+
 def generateServerLevelPos(focusapplicationID):
 	global listApplications
 	global listInterfaces
@@ -328,15 +365,22 @@ class nApplication(object):
 		self.layer = layer
 
 class nServer(object):
-	def __init__(self, ID, AppID, function, hostname):
+	def __init__(self, ID, AppID, function, hostname, appname, inscope):
 		self.ID = int(ID)
 		self.AppID = int(AppID)
 		self.function = function	
-		self.hostname = hostname	
+		self.hostname = hostname
+		self.appname = appname
+		self.inscope = inscope	
 
 	def tag(self):
-		return str(self.ID) + ". " + self.function + '\n' + self.hostname	
-	
+		return str(self.ID) + ". " + self.function + '\n' + self.hostname
+
+	def apptag(self):
+		if self.inscope == "Yes":
+			return str(self.ID) + ". " + self.appname + "\n" + self.function + '\n' + self.hostname		
+		else:
+			return self.appname + "\n" + self.hostname	
 		
 class nInterface(object):
 	#20130823 changed color functions, added label function, added bidirectional tag
@@ -432,7 +476,10 @@ class Index(object):
     	form = web.input(focusapp="none")
     	print form.focusapp
     	if form.focusapp == "none":
-    		system("dot -Tsvg -ostatic/out.svg " + generatePosFile("none", "throughput", "none"))
+    		system("dot -Tsvg -ostatic/out.svg " + generateAllServerPos())
+    		system("dot -Tpdf -ostatic/servermap.pdf " + generateAllServerPos())
+    		#system("dot -Tsvg -ostatic/out.svg " + generatePosFile("none", "throughput", "none"))
+    		#system("dot -Tpdf -ostatic/inframap.pdf " + generatePosFile("none", "throughput", "none"))
     		return htmloutput("none")
     	else:
     		system("dot -Tsvg -ostatic/out.svg " + generateServerLevelPos(int(form.focusapp)))
