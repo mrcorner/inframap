@@ -334,16 +334,23 @@ def htmloutput(appfocus):
 
 	return htmlstring
 
-
-
-
 def findBiDirectionalEdges():
 	global listInterfaces
 	#remove double interfaces; add troughputs
+	#remove internal interfaces
 	#if from -> to and to -> from exist, remove one and make remaining bidirectional
 
-	for interface in listInterfaces:
-		for interfacecompare in listInterfaces:
+	#first, remove application internal interfaces
+	for interface in reversed(listInterfaces):
+		print '{}{} {} {}'.format("Interface ", interface.ID, interface.toAppID, interface.fromAppID )
+		if interface.toAppID == interface.fromAppID:
+			listInterfaces.remove(interface)
+			print '{}{}'.format("Removed: ", interface.ID)
+
+	#add throughputs for double interfaces
+	#make interfaces bidirectional
+	for interface in reversed(listInterfaces):
+		for interfacecompare in reversed(listInterfaces):
 			if interface.ID != interfacecompare.ID:
 				if interface.toAppID == interfacecompare.toAppID and interface.fromAppID == interfacecompare.fromAppID:
 					interface.throughput = interface.throughput + interfacecompare.throughput
@@ -353,8 +360,9 @@ def findBiDirectionalEdges():
 					interface.bidirectional = "Yes"
 					interface.throughput = interface.throughput + interfacecompare.throughput
 					listInterfaces.append(interface)
+					print '{}{}'.format("About to remove interface: ", interfacecompare.ID)
+					print '{}{}'.format("compared with ", interface.ID) 
 					listInterfaces.remove(interfacecompare)
-
 
 class nApplication(object):
 	
@@ -449,7 +457,6 @@ class nInterface(object):
 		else:
 			return ''		
 		
-	
 
 urls = (
   '/', 'Index'
@@ -463,8 +470,6 @@ app = web.application(urls, globals())
 
 render = web.template.render('templates/')
 
-
-
 class Index(object):
     def GET(self):
     	global listApplications
@@ -476,17 +481,15 @@ class Index(object):
     	form = web.input(focusapp="none")
     	print form.focusapp
     	if form.focusapp == "none":
-    		system("dot -Tsvg -ostatic/out.svg " + generateAllServerPos())
-    		system("dot -Tpdf -ostatic/servermap.pdf " + generateAllServerPos())
-    		#system("dot -Tsvg -ostatic/out.svg " + generatePosFile("none", "throughput", "none"))
-    		#system("dot -Tpdf -ostatic/inframap.pdf " + generatePosFile("none", "throughput", "none"))
+    		#system("dot -Tsvg -ostatic/out.svg " + generateAllServerPos())
+    		#system("dot -Tpdf -ostatic/servermap.pdf " + generateAllServerPos())
+    		system("dot -Tsvg -ostatic/out.svg " + generatePosFile("none", "throughput", "none"))
+    		system("dot -Tpdf -ostatic/inframap.pdf " + generatePosFile("none", "throughput", "none"))
     		return htmloutput("none")
     	else:
     		system("dot -Tsvg -ostatic/out.svg " + generateServerLevelPos(int(form.focusapp)))
     		return htmloutput(int(form.focusapp))
 
-    	
-        
     def POST(self):
     	form=web.input(mode="overview", nodecolor="none", edgecolor="none", edgewidth="none")
     	
