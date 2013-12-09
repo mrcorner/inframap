@@ -341,6 +341,7 @@ def findBiDirectionalEdges():
 	#if from -> to and to -> from exist, remove one and make remaining bidirectional
 
 	#first, remove application internal interfaces
+	#loop trough reversed so removals dont interfere with iterations
 	for interface in reversed(listInterfaces):
 		print '{}{} {} {}'.format("Interface ", interface.ID, interface.toAppID, interface.fromAppID )
 		if interface.toAppID == interface.fromAppID:
@@ -349,6 +350,7 @@ def findBiDirectionalEdges():
 
 	#add throughputs for double interfaces
 	#make interfaces bidirectional
+	#loop trough reversed so removals dont interfere with iterations
 	for interface in reversed(listInterfaces):
 		for interfacecompare in reversed(listInterfaces):
 			if interface.ID != interfacecompare.ID:
