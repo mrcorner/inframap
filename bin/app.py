@@ -68,7 +68,18 @@ def readfiles():
 							 rowx[serlegend.index('Functie')].value,
 							 rowx[serlegend.index('Hostname')].value,
 							 rowx[serlegend.index('App name')].value,
-							 rowx[serlegend.index('Scope')].value)
+							 rowx[serlegend.index('Scope')].value,
+							 rowx[serlegend.index('D')].value,
+							 rowx[serlegend.index('T')].value,
+							 rowx[serlegend.index('A')].value,
+							 rowx[serlegend.index('P')].value,
+							 rowx[serlegend.index('oldServertype')].value,
+							 rowx[serlegend.index('newServertype')].value,
+							 rowx[serlegend.index('oldCores')].value,
+							 rowx[serlegend.index('newCores')].value,
+							 rowx[serlegend.index('oldRAM')].value,
+							 rowx[serlegend.index('newRAM')].value		
+							 )
 			if listServers.count(server) == 0:
 				listServers.append(server)
 	
@@ -189,8 +200,9 @@ def generateServerLevelPos(focusapplicationID):
 		if server.AppID == focusapplicationID:
 			if firstservertag == "":
 				firstservertag = server.tag()
-			posfilestring = posfilestring + '"' + server.tag() + '";'
-			posfilestring = posfilestring + "\n"
+			if server.p == "X":
+				posfilestring = posfilestring + '"' + server.tag() + '";'
+				posfilestring = posfilestring + "\n"
 
 	#close subgraph
 	posfilestring = posfilestring + "\n}\n"
@@ -199,30 +211,43 @@ def generateServerLevelPos(focusapplicationID):
 	#all webservers to application servers
 	#all application servers to database servers
 
-	for server in listServers:
-		if server.function == "Application" and server.AppID == focusapplicationID:
-			for toserver in listServers:
-				if toserver.function == "Webserver" and toserver.AppID == focusapplicationID:
-					posfilestring = posfilestring + '"' + server.tag() + '" -> "' + toserver.tag() + '"[weight=100];\n'		
+	#for server in listServers:
+	#	if server.function == "Application" and server.AppID == focusapplicationID:
+	#		for toserver in listServers:
+	#			if toserver.function == "Webserver" and toserver.AppID == focusapplicationID:
+	#				posfilestring = posfilestring + '"' + server.tag() + '" -> "' + toserver.tag() + '"[weight=100];\n'		
 
 	
-	for server in listServers:
-		if (server.function == "Database" or server.function == "Oracle RAC") and server.AppID == focusapplicationID:
-			for toserver in listServers:
-				if toserver.function == "Application" and toserver.AppID == focusapplicationID:
-					posfilestring = posfilestring + '"' + server.tag() + '" -> "' + toserver.tag() + '"[weight=100];\n'					
+	#for server in listServers:
+	#	if (server.function == "Database" or server.function == "Oracle RAC") and server.AppID == focusapplicationID:
+	#		for toserver in listServers:
+	#			if toserver.function == "Application" and toserver.AppID == focusapplicationID:
+	#				posfilestring = posfilestring + '"' + server.tag() + '" -> "' + toserver.tag() + '"[weight=100];\n'					
 
-	for server in listServers:
-		if (server.function == "Sattelite" or server.function == "Webserver") and server.AppID == focusapplicationID:
-			for toserver in listServers:
-				if toserver.function == "Database" and toserver.AppID == focusapplicationID:
-					posfilestring = posfilestring + '"' + server.tag() + '" -> "' + toserver.tag() + '"[weight=100];\n'					
+	#for server in listServers:
+	#	if (server.function == "Sattelite" or server.function == "Webserver") and server.AppID == focusapplicationID:
+	#		for toserver in listServers:
+	#			if toserver.function == "Database" and toserver.AppID == focusapplicationID:
+	#				posfilestring = posfilestring + '"' + server.tag() + '" -> "' + toserver.tag() + '"[weight=100];\n'					
 
+
+	#add internal connections
+	for interface in listInterfaces:
+		if interface.toAppID == interface.fromAppID and interface.toAppID == focusapplicationID:
+			#internal interface
+			fromserver = ""
+			toserver = ""
+			for server in listServers:
+				if server.ID == interface.fromServerID:
+					fromserver = server.tag()
+				if server.ID == interface.toServerID:
+					toserver = server.tag()
+			posfilestring = posfilestring + '"' + fromserver + '" -> "' + toserver + '"[color="#333333"];\n'
 
 			
 	#add outside connections
 	for interface in listInterfaces:
-		if interface.toAppID == focusapplicationID:
+		if interface.toAppID == focusapplicationID and interface.toAppID != interface.fromAppID:
 			thisservertag = firstservertag
 			for server in listServers:
 				if server.ID == interface.toServerID:
@@ -233,7 +258,7 @@ def generateServerLevelPos(focusapplicationID):
 					posfilestring = posfilestring + '"' + app.name + '" -> "' + thisservertag + '"[color="#00FF00"];\n'
 
 	for interface in listInterfaces:
-		if interface.fromAppID == focusapplicationID:
+		if interface.fromAppID == focusapplicationID and interface.toAppID != interface.fromAppID:
 			thisservertag = firstservertag
 			for server in listServers:
 				if server.ID == interface.fromServerID:
@@ -274,7 +299,7 @@ def htmloutput(appfocus):
 		for interface in listInterfaces:
 			outSServer = ""
 			outTServer = ""
-			if interface.fromAppID == appfocus:
+			if interface.fromAppID == appfocus and interface.toAppID != interface.fromAppID:
 				for server in listServers:
 					if server.ID == interface.fromServerID:
 						outSServer = server.hostname
@@ -297,7 +322,7 @@ def htmloutput(appfocus):
 		for interface in listInterfaces:
 			outSServer = ""
 			outTServer = ""
-			if interface.toAppID == appfocus:
+			if interface.toAppID == appfocus and interface.toAppID != interface.fromAppID:
 				for server in listServers:
 					if server.ID == interface.fromServerID:
 						outSServer = server.hostname
@@ -318,15 +343,57 @@ def htmloutput(appfocus):
 		counter = 0
 		
 		for interface in listInterfaces:
-			if interface.fromAppID == appfocus:
+			if interface.fromAppID == appfocus and interface.toAppID != interface.fromAppID:
 				counter = counter + 1
 				htmlstring = htmlstring + '%02d' % counter + ". " + interface.interfacefunction + "<br>"		
 
 		for interface in listInterfaces:
-			if interface.toAppID == appfocus:
+			if interface.toAppID == appfocus and interface.toAppID != interface.fromAppID:
 				counter = counter + 1
 				htmlstring = htmlstring + '%02d' % counter + ". " + interface.interfacefunction + "<br>"	
 
+
+		#list all old servers for application
+		htmlstring = htmlstring + '<br><br>Old servers:<br><table width="400" border="1"><tr id="header"><td>#</td><td>Hostname</td><td>E</td><td>Function</td><td>VM</td><td>CPU</td><td>RAM</td></tr>'
+		for server in listServers:
+			if server.AppID == appfocus:
+				htmlstring = htmlstring + ('<tr><td>%02d' % server.ID + "</td><td>" + 
+			   		server.hostname + "</td><td>")
+				if server.d == "X":
+					htmlstring = htmlstring + "D"
+			   	if server.t == "X":
+			   		htmlstring = htmlstring + "T"
+			   	if server.a == "X":
+			   		htmlstring = htmlstring + "A"			   						   						   		
+			   	if server.p == "X":
+			   		htmlstring = htmlstring + "P"
+			   	htmlstring = htmlstring + ("</td><td>" +
+			  		server.function + "</td><td>" + 
+			   		server.oldservertype + "</td><td>" +
+			   		server.oldcores + "</td><td>" +
+			   		server.oldram + '</td></tr>')
+		htmlstring = htmlstring + '</table>'
+
+		#list all new servers
+		htmlstring = htmlstring + '<br><br>New servers:<br><table width="400" border="1"><tr id="header"><td>#</td><td>Hostname</td><td>E</td><td>Function</td><td>VM</td><td>CPU</td><td>RAM</td></tr>'
+		for server in listServers:
+			if server.AppID == appfocus:
+				htmlstring = htmlstring + ('<tr><td>%02d' % server.ID + "</td><td>" + 
+			   		server.hostname + "</td><td>")
+				if server.d == "X":
+					htmlstring = htmlstring + "D"
+			   	if server.t == "X":
+			   		htmlstring = htmlstring + "T"
+			   	if server.a == "X":
+			   		htmlstring = htmlstring + "A"			   						   						   		
+			   	if server.p == "X":
+			   		htmlstring = htmlstring + "P"
+			   	htmlstring = htmlstring + ("</td><td>" +
+			  		server.function + "</td><td>" + 
+			   		server.newservertype + "</td><td>" +
+			   		server.newcores + "</td><td>" +
+			   		server.newram + '</td></tr>')		
+		htmlstring = htmlstring + '</table><br><br>'
 
 		htmlstring = htmlstring + '<br><br><a href="http://localhost:8080/">Back</a>'
 
@@ -375,13 +442,25 @@ class nApplication(object):
 		self.layer = layer
 
 class nServer(object):
-	def __init__(self, ID, AppID, function, hostname, appname, inscope):
+	def __init__(self, ID, AppID, function, hostname, appname, inscope, d, t, a, p, oldservertype, newservertype, oldcores, newcores, oldram, newram):
 		self.ID = int(ID)
 		self.AppID = int(AppID)
 		self.function = function	
 		self.hostname = hostname
 		self.appname = appname
-		self.inscope = inscope	
+		self.inscope = inscope
+		self.d = d
+		self.t = t
+		self.a = a
+		self.p = p
+		self.oldservertype = oldservertype
+		self.newservertype = newservertype
+		self.oldcores = str(oldcores)
+		self.newcores = str(newcores)
+		self.oldram = str(oldram)
+		self.newram = str(newram)
+
+
 
 	def tag(self):
 		return str(self.ID) + ". " + self.function + '\n' + self.hostname
