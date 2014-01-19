@@ -1,0 +1,2453 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: graphviz version 2.32.0 (20130801.1934)
+%%Title: G
+%%Pages: 1
+%%BoundingBox: 36 36 1116 299
+%%EndComments
+save
+%%BeginProlog
+/DotDict 200 dict def
+DotDict begin
+
+/setupLatin1 {
+mark
+/EncodingVector 256 array def
+ EncodingVector 0
+
+ISOLatin1Encoding 0 255 getinterval putinterval
+EncodingVector 45 /hyphen put
+
+% Set up ISO Latin 1 character encoding
+/starnetISO {
+        dup dup findfont dup length dict begin
+        { 1 index /FID ne { def }{ pop pop } ifelse
+        } forall
+        /Encoding EncodingVector def
+        currentdict end definefont
+} def
+/Times-Roman starnetISO def
+/Times-Italic starnetISO def
+/Times-Bold starnetISO def
+/Times-BoldItalic starnetISO def
+/Helvetica starnetISO def
+/Helvetica-Oblique starnetISO def
+/Helvetica-Bold starnetISO def
+/Helvetica-BoldOblique starnetISO def
+/Courier starnetISO def
+/Courier-Oblique starnetISO def
+/Courier-Bold starnetISO def
+/Courier-BoldOblique starnetISO def
+cleartomark
+} bind def
+
+%%BeginResource: procset graphviz 0 0
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+       dup 1 exch div /InvScaleFactor exch def
+       scale
+} bind def
+
+% styles
+/solid { [] 0 setdash } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+/tapered { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw text fitted to its expected width
+/alignedtext {			% width text
+	/text exch def
+	/width exch def
+	gsave
+		width 0 gt {
+			[] 0 setdash
+			text stringwidth pop width exch sub text length div 0 text ashow
+		} if
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+/showpage { } def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/layerlen layercolorseq length def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer 1 sub layerlen mod get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+14 default-font-family set_font
+1 setmiterlimit
+% /arrowlength 10 def
+% /arrowwidth 5 def
+
+% make sure pdfmark is harmless for PS-interpreters other than Distiller
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+% make '<<' and '>>' safe on PS Level 1 devices
+/languagelevel where {pop languagelevel}{1} ifelse
+2 lt {
+    userdict (<<) cvn ([) cvn load put
+    userdict (>>) cvn ([) cvn load put
+} if
+
+%%EndSetup
+setupLatin1
+%%Page: 1 1
+%%PageBoundingBox: 36 36 1116 299
+%%PageOrientation: Portrait
+0 0 1 beginpage
+gsave
+36 36 1080 263 boxprim clip newpath
+0.705882 0.705882 set_scale 0 rotate 55 56 translate
+% Source
+gsave
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+24.5 343.5 moveto 25 (Source) alignedtext
+grestore
+% ETL
+gsave
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+30.5 261.5 moveto 13 (ETL) alignedtext
+grestore
+% Source->ETL
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 37 327.64 moveto
+37 317.3 37 303.94 37 292.22 curveto
+stroke
+0 0 0 edgecolor
+newpath 40.5 292.05 moveto
+37 282.05 lineto
+33.5 292.05 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 40.5 292.05 moveto
+37 282.05 lineto
+33.5 292.05 lineto
+closepath stroke
+grestore
+% Datawarehouse
+gsave
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+8 179.5 moveto 58 (Datawarehouse) alignedtext
+grestore
+% ETL->Datawarehouse
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 37 245.64 moveto
+37 235.3 37 221.94 37 210.22 curveto
+stroke
+0 0 0 edgecolor
+newpath 40.5 210.05 moveto
+37 200.05 lineto
+33.5 210.05 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 40.5 210.05 moveto
+37 200.05 lineto
+33.5 210.05 lineto
+closepath stroke
+grestore
+% Application
+gsave
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+16 97.5 moveto 42 (Application) alignedtext
+grestore
+% Datawarehouse->Application
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 37 163.64 moveto
+37 153.3 37 139.94 37 128.22 curveto
+stroke
+0 0 0 edgecolor
+newpath 40.5 128.05 moveto
+37 118.05 lineto
+33.5 128.05 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 40.5 128.05 moveto
+37 118.05 lineto
+33.5 128.05 lineto
+closepath stroke
+grestore
+% Presentation
+gsave
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+13.5 15.5 moveto 47 (Presentation) alignedtext
+grestore
+% Application->Presentation
+gsave
+1 setlinewidth
+0 0 0 edgecolor
+newpath 37 81.64 moveto
+37 71.3 37 57.94 37 46.22 curveto
+stroke
+0 0 0 edgecolor
+newpath 40.5 46.05 moveto
+37 36.05 lineto
+33.5 46.05 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0 edgecolor
+newpath 40.5 46.05 moveto
+37 36.05 lineto
+33.5 46.05 lineto
+closepath stroke
+grestore
+% iProcess
+gsave
+0 0 0.6 nodecolor
+newpath 706 364 moveto
+652 364 lineto
+652 328 lineto
+706 328 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 706 364 moveto
+652 364 lineto
+652 328 lineto
+706 328 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+664 343.5 moveto 30 (iProcess) alignedtext
+grestore
+% Informatica
+gsave
+[ /Rect [ 678 246 736 282 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI (http://localhost:8080/?focusapp=10) >>
+  /Subtype /Link
+/ANN pdfmark
+1 setlinewidth
+0.5451 0.42353 0.92157 nodecolor
+newpath 736 282 moveto
+678 282 lineto
+678 246 lineto
+736 246 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+686 261.5 moveto 42 (Informatica) alignedtext
+grestore
+% iProcess->Informatica
+gsave
+1 setlinewidth
+0.16667 0.8 1 edgecolor
+newpath 685.08 327.64 moveto
+688.77 317.09 693.56 303.39 697.72 291.51 curveto
+stroke
+0.16667 0.8 1 edgecolor
+newpath 701.03 292.64 moveto
+701.03 282.05 lineto
+694.43 290.33 lineto
+closepath fill
+1 setlinewidth
+solid
+0.16667 0.8 1 edgecolor
+newpath 701.03 292.64 moveto
+701.03 282.05 lineto
+694.43 290.33 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+695 303.1 moveto 17 (<5Gb) alignedtext
+grestore
+% SAP ISU
+gsave
+0 0 0.6 nodecolor
+newpath 490 364 moveto
+436 364 lineto
+436 328 lineto
+490 328 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 490 364 moveto
+436 364 lineto
+436 328 lineto
+490 328 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+448.5 343.5 moveto 29 (SAP ISU) alignedtext
+grestore
+% XM2
+gsave
+[ /Rect [ 537 246 591 282 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI (http://localhost:8080/?focusapp=3) >>
+  /Subtype /Link
+/ANN pdfmark
+1 setlinewidth
+0.5451 0.42353 0.92157 nodecolor
+newpath 591 282 moveto
+537 282 lineto
+537 246 lineto
+591 246 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+555.5 261.5 moveto 17 (XM2) alignedtext
+grestore
+% SAP ISU->XM2
+gsave
+1 setlinewidth
+0.99835 0.88596 0.89412 edgecolor
+newpath 467.73 327.84 moveto
+471.02 318.61 476.23 307.59 484 300 curveto
+495.93 288.36 512.36 280.26 527.23 274.81 curveto
+stroke
+0.99835 0.88596 0.89412 edgecolor
+newpath 528.37 278.12 moveto
+536.72 271.6 lineto
+526.12 271.49 lineto
+closepath fill
+1 setlinewidth
+solid
+0.99835 0.88596 0.89412 edgecolor
+newpath 528.37 278.12 moveto
+536.72 271.6 lineto
+526.12 271.49 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+484 303.1 moveto 21 (>25Gb) alignedtext
+grestore
+% SAP ISU->Informatica
+gsave
+1 setlinewidth
+0.083007 1 1 edgecolor
+newpath 490.37 331.67 moveto
+493.26 330.39 496.18 329.14 499 328 curveto
+556.38 304.86 625.59 285.52 667.94 274.6 curveto
+stroke
+0.083007 1 1 edgecolor
+newpath 669.02 277.94 moveto
+677.84 272.07 lineto
+667.29 271.15 lineto
+closepath fill
+1 setlinewidth
+solid
+0.083007 1 1 edgecolor
+newpath 669.02 277.94 moveto
+677.84 272.07 lineto
+667.29 271.15 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+578 303.1 moveto 21 (<25Gb) alignedtext
+grestore
+% SAP CRM
+gsave
+0 0 0.6 nodecolor
+newpath 562 364 moveto
+508 364 lineto
+508 328 lineto
+562 328 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 562 364 moveto
+508 364 lineto
+508 328 lineto
+562 328 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+518.5 343.5 moveto 33 (SAP CRM) alignedtext
+grestore
+% SAP CRM->XM2
+gsave
+1 setlinewidth
+0.99835 0.88596 0.89412 edgecolor
+newpath 517.28 327.89 moveto
+510.76 319.48 506.05 309.2 511 300 curveto
+514.97 292.63 521.24 286.55 528.11 281.64 curveto
+stroke
+0.99835 0.88596 0.89412 edgecolor
+newpath 530.4 284.34 moveto
+537 276.05 lineto
+526.67 278.42 lineto
+closepath fill
+1 setlinewidth
+solid
+0.99835 0.88596 0.89412 edgecolor
+newpath 530.4 284.34 moveto
+537 276.05 lineto
+526.67 278.42 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+511 303.1 moveto 21 (>25Gb) alignedtext
+grestore
+% SAP CRM->Informatica
+gsave
+1 setlinewidth
+0.083007 1 1 edgecolor
+newpath 562.23 331.3 moveto
+580.46 322.23 605.06 310.16 627 300 curveto
+640.51 293.75 655.42 287.14 668.67 281.38 curveto
+stroke
+0.083007 1 1 edgecolor
+newpath 670.2 284.53 moveto
+677.98 277.34 lineto
+667.42 278.1 lineto
+closepath fill
+1 setlinewidth
+solid
+0.083007 1 1 edgecolor
+newpath 670.2 284.53 moveto
+677.98 277.34 lineto
+667.42 278.1 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+627 303.1 moveto 21 (<25Gb) alignedtext
+grestore
+% Avaya
+gsave
+0 0 0.6 nodecolor
+newpath 1202 364 moveto
+1148 364 lineto
+1148 328 lineto
+1202 328 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 1202 364 moveto
+1148 364 lineto
+1148 328 lineto
+1202 328 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+1163.5 343.5 moveto 23 (Avaya) alignedtext
+grestore
+% BPS DWH
+gsave
+[ /Rect [ 1119 164 1173 200 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI (http://localhost:8080/?focusapp=20) >>
+  /Subtype /Link
+/ANN pdfmark
+1 setlinewidth
+0.5451 0.42353 0.92157 nodecolor
+newpath 1173 200 moveto
+1119 200 lineto
+1119 164 lineto
+1173 164 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+1128.5 179.5 moveto 35 (BPS DWH) alignedtext
+grestore
+% Avaya->BPS DWH
+gsave
+1 setlinewidth
+0.16667 0.8 1 edgecolor
+newpath 1171.95 327.97 moveto
+1166.94 299.97 1156.91 243.96 1150.9 210.35 curveto
+stroke
+0.16667 0.8 1 edgecolor
+newpath 1154.3 209.52 moveto
+1149.1 200.29 lineto
+1147.41 210.75 lineto
+closepath fill
+1 setlinewidth
+solid
+0.16667 0.8 1 edgecolor
+newpath 1154.3 209.52 moveto
+1149.1 200.29 lineto
+1147.41 210.75 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+1164 262.1 moveto 17 (<5Gb) alignedtext
+grestore
+% Totalview
+gsave
+[ /Rect [ 1096 82 1150 118 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI (http://localhost:8080/?focusapp=13) >>
+  /Subtype /Link
+/ANN pdfmark
+1 setlinewidth
+0.5451 0.42353 0.92157 nodecolor
+newpath 1150 118 moveto
+1096 118 lineto
+1096 82 lineto
+1150 82 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+1105 97.5 moveto 36 (Totalview) alignedtext
+grestore
+% Avaya->Totalview
+gsave
+1 setlinewidth
+0.32838 0.57714 0.68627 edgecolor
+newpath 1180.23 327.95 moveto
+1189.42 294.84 1205.39 220.17 1182 164 curveto
+1175.82 149.16 1164.46 135.7 1153.35 125.07 curveto
+stroke
+0.32838 0.57714 0.68627 edgecolor
+newpath 1155.52 122.31 moveto
+1145.77 118.17 lineto
+1150.81 127.49 lineto
+closepath fill
+1 setlinewidth
+solid
+0.32838 0.57714 0.68627 edgecolor
+newpath 1155.52 122.31 moveto
+1145.77 118.17 lineto
+1150.81 127.49 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+1195 221.1 moveto 17 (<1Gb) alignedtext
+grestore
+% PIF
+gsave
+[ /Rect [ 708 82 762 118 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI (http://localhost:8080/?focusapp=14) >>
+  /Subtype /Link
+/ANN pdfmark
+1 setlinewidth
+0.5451 0.42353 0.92157 nodecolor
+newpath 762 118 moveto
+708 118 lineto
+708 82 lineto
+762 82 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+729 97.5 moveto 12 (PIF) alignedtext
+grestore
+% Avaya->PIF
+gsave
+1 setlinewidth
+0.16667 0.8 1 edgecolor
+newpath 1168.99 327.97 moveto
+1155.31 291.78 1118.3 207.04 1058 164 curveto
+1047.47 156.48 957.73 138.3 945 136 curveto
+876.32 123.58 857.26 132.54 789 118 curveto
+783.47 116.82 777.7 115.32 772.08 113.69 curveto
+stroke
+0.16667 0.8 1 edgecolor
+newpath 772.79 110.24 moveto
+762.2 110.67 lineto
+770.74 116.94 lineto
+closepath fill
+1 setlinewidth
+solid
+0.16667 0.8 1 edgecolor
+newpath 772.79 110.24 moveto
+762.2 110.67 lineto
+770.74 116.94 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+1118 221.1 moveto 17 (<5Gb) alignedtext
+grestore
+% EDSN Gateway
+gsave
+0 0 0.6 nodecolor
+newpath 794 364 moveto
+724 364 lineto
+724 328 lineto
+794 328 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 794 364 moveto
+724 364 lineto
+724 328 lineto
+794 328 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+732 343.5 moveto 54 (EDSN Gateway) alignedtext
+grestore
+% EDSN Gateway->Informatica
+gsave
+1 setlinewidth
+0.32838 0.57714 0.68627 edgecolor
+newpath 747.72 327.64 moveto
+740.65 316.77 731.42 302.57 723.54 290.44 curveto
+stroke
+0.32838 0.57714 0.68627 edgecolor
+newpath 726.47 288.53 moveto
+718.08 282.05 lineto
+720.6 292.34 lineto
+closepath fill
+1 setlinewidth
+solid
+0.32838 0.57714 0.68627 edgecolor
+newpath 726.47 288.53 moveto
+718.08 282.05 lineto
+720.6 292.34 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+737 303.1 moveto 17 (<1Gb) alignedtext
+grestore
+% Thinconnect
+gsave
+0 0 0.6 nodecolor
+newpath 1110 364 moveto
+1048 364 lineto
+1048 328 lineto
+1110 328 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 1110 364 moveto
+1048 364 lineto
+1048 328 lineto
+1110 328 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+1056 343.5 moveto 46 (Thinconnect) alignedtext
+grestore
+% Thinconnect->XM2
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 1047.85 330.79 moveto
+1044.89 329.74 1041.91 328.78 1039 328 curveto
+878.98 284.95 833.04 305.47 669 282 curveto
+646.43 278.77 621.2 274.7 601.14 271.35 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 601.59 267.88 moveto
+591.15 269.68 lineto
+600.43 274.79 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 601.59 267.88 moveto
+591.15 269.68 lineto
+600.43 274.79 lineto
+closepath stroke
+grestore
+% Thinconnect->BPS DWH
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 1090 318.39 moveto
+1102.42 288.36 1122.51 239.8 1134.95 209.73 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 1086.63 317.39 moveto
+1086.04 327.97 lineto
+1093.1 320.07 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 1086.63 317.39 moveto
+1086.04 327.97 lineto
+1093.1 320.07 lineto
+closepath stroke
+0 0 0.6 edgecolor
+newpath 1138.26 210.87 moveto
+1138.85 200.29 lineto
+1131.79 208.19 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 1138.26 210.87 moveto
+1138.85 200.29 lineto
+1131.79 208.19 lineto
+closepath stroke
+grestore
+% Thinconnect->PIF
+gsave
+1 setlinewidth
+0.32838 0.57714 0.68627 edgecolor
+newpath 1075.33 327.8 moveto
+1065.73 282.9 1040.5 165.45 1039 164 curveto
+1028.86 154.17 802.71 121.37 789 118 curveto
+783.45 116.64 777.64 115.02 771.97 113.33 curveto
+stroke
+0.32838 0.57714 0.68627 edgecolor
+newpath 772.59 109.86 moveto
+762 110.25 lineto
+770.52 116.54 lineto
+closepath fill
+1 setlinewidth
+solid
+0.32838 0.57714 0.68627 edgecolor
+newpath 772.59 109.86 moveto
+762 110.25 lineto
+770.52 116.54 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+1054 221.1 moveto 17 (<1Gb) alignedtext
+grestore
+% RWE AD servers
+gsave
+0 0 0.6 nodecolor
+newpath 957.25 364 moveto
+884.75 364 lineto
+884.75 328 lineto
+957.25 328 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 957.25 364 moveto
+884.75 364 lineto
+884.75 328 lineto
+957.25 328 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+892.5 343.5 moveto 57 (RWE AD servers) alignedtext
+grestore
+% RWE AD servers->PIF
+gsave
+1 setlinewidth
+0.32838 0.57714 0.68627 edgecolor
+newpath 914.14 327.92 moveto
+911.85 322.23 909.31 315.84 907 310 curveto
+892.62 273.62 887.07 265.21 875 228 curveto
+861.96 187.8 880.47 166.29 851 136 curveto
+830.99 115.43 816.46 126.31 789 118 curveto
+783.53 116.35 777.76 114.57 772.11 112.8 curveto
+stroke
+0.32838 0.57714 0.68627 edgecolor
+newpath 772.75 109.33 moveto
+762.16 109.68 lineto
+770.65 116.01 lineto
+closepath fill
+1 setlinewidth
+solid
+0.32838 0.57714 0.68627 edgecolor
+newpath 772.75 109.33 moveto
+762.16 109.68 lineto
+770.65 116.01 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+875 221.1 moveto 17 (<1Gb) alignedtext
+grestore
+% TIJSS
+gsave
+0 0 0.6 nodecolor
+newpath 1030 364 moveto
+976 364 lineto
+976 328 lineto
+1030 328 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 1030 364 moveto
+976 364 lineto
+976 328 lineto
+1030 328 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+993.5 343.5 moveto 19 (TIJSS) alignedtext
+grestore
+% TPM
+gsave
+0 0 0.6 nodecolor
+newpath 866 364 moveto
+812 364 lineto
+812 328 lineto
+866 328 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 866 364 moveto
+812 364 lineto
+812 328 lineto
+866 328 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+830.5 343.5 moveto 17 (TPM) alignedtext
+grestore
+% TPM->Informatica
+gsave
+1 setlinewidth
+0.32838 0.57714 0.68627 edgecolor
+newpath 811.97 328.62 moveto
+792.35 316.73 765.56 300.49 743.96 287.4 curveto
+stroke
+0.32838 0.57714 0.68627 edgecolor
+newpath 745.73 284.38 moveto
+735.36 282.19 lineto
+742.1 290.37 lineto
+closepath fill
+1 setlinewidth
+solid
+0.32838 0.57714 0.68627 edgecolor
+newpath 745.73 284.38 moveto
+735.36 282.19 lineto
+742.1 290.37 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+781 303.1 moveto 17 (<1Gb) alignedtext
+grestore
+% All4One
+gsave
+0 0 0.6 nodecolor
+newpath 634 364 moveto
+580 364 lineto
+580 328 lineto
+634 328 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 634 364 moveto
+580 364 lineto
+580 328 lineto
+634 328 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+592.5 343.5 moveto 29 (All4One) alignedtext
+grestore
+% All4One->Informatica
+gsave
+1 setlinewidth
+0.32838 0.57714 0.68627 edgecolor
+newpath 628.7 327.64 moveto
+643.08 316.14 662.12 300.9 677.82 288.34 curveto
+stroke
+0.32838 0.57714 0.68627 edgecolor
+newpath 680.07 291.03 moveto
+685.69 282.05 lineto
+675.69 285.56 lineto
+closepath fill
+1 setlinewidth
+solid
+0.32838 0.57714 0.68627 edgecolor
+newpath 680.07 291.03 moveto
+685.69 282.05 lineto
+675.69 285.56 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+663 303.1 moveto 17 (<1Gb) alignedtext
+grestore
+% XM2->iProcess
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 600.98 271.09 moveto
+620.6 275.99 643.91 284.69 660 300 curveto
+665.2 304.95 669.04 311.54 671.85 318.16 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 601.64 267.65 moveto
+591.12 268.86 lineto
+600.1 274.48 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 601.64 267.65 moveto
+591.12 268.86 lineto
+600.1 274.48 lineto
+closepath stroke
+0 0 0.6 edgecolor
+newpath 668.59 319.44 moveto
+675.27 327.67 lineto
+675.18 317.08 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 668.59 319.44 moveto
+675.27 327.67 lineto
+675.18 317.08 lineto
+closepath stroke
+grestore
+% XM2->Informatica
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 591.09 264 moveto
+616.54 264 641.99 264 667.44 264 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 667.57 267.5 moveto
+677.57 264 lineto
+667.57 260.5 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 667.57 267.5 moveto
+677.57 264 lineto
+667.57 260.5 lineto
+closepath stroke
+grestore
+% RMS
+gsave
+[ /Rect [ 392 164 446 200 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI (http://localhost:8080/?focusapp=2) >>
+  /Subtype /Link
+/ANN pdfmark
+1 setlinewidth
+0.5451 0.42353 0.92157 nodecolor
+newpath 446 200 moveto
+392 200 lineto
+392 164 lineto
+446 164 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+410.5 179.5 moveto 17 (RMS) alignedtext
+grestore
+% XM2->RMS
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 527.79 243.02 moveto
+505.54 230.75 477.14 215.08 454.94 202.83 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 526.28 246.19 moveto
+536.73 247.95 lineto
+529.66 240.06 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 526.28 246.19 moveto
+536.73 247.95 lineto
+529.66 240.06 lineto
+closepath stroke
+0 0 0.6 edgecolor
+newpath 456.6 199.75 moveto
+446.15 197.98 lineto
+453.22 205.88 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 456.6 199.75 moveto
+446.15 197.98 lineto
+453.22 205.88 lineto
+closepath stroke
+grestore
+% XM2->BPS DWH
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 601.06 256.07 moveto
+621.11 252.55 646.34 248.51 669 246 curveto
+801.76 231.31 837.02 248.55 969 228 curveto
+1018.05 220.36 1073.3 205.24 1108.82 194.64 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 600.32 252.64 moveto
+591.09 257.84 lineto
+601.55 259.53 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 600.32 252.64 moveto
+591.09 257.84 lineto
+601.55 259.53 lineto
+closepath stroke
+0 0 0.6 edgecolor
+newpath 1110.18 197.89 moveto
+1118.74 191.65 lineto
+1108.16 191.19 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 1110.18 197.89 moveto
+1118.74 191.65 lineto
+1108.16 191.19 lineto
+closepath stroke
+grestore
+% Digip
+gsave
+[ /Rect [ 798 82 852 118 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI (http://localhost:8080/?focusapp=4) >>
+  /Subtype /Link
+/ANN pdfmark
+1 setlinewidth
+0.5451 0.42353 0.92157 nodecolor
+newpath 852 118 moveto
+798 118 lineto
+798 82 lineto
+852 82 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+815 97.5 moveto 20 (Digip) alignedtext
+grestore
+% XM2->Digip
+gsave
+1 setlinewidth
+0.16667 0.8 1 edgecolor
+newpath 591.1 257.9 moveto
+612.24 254.1 642.4 249.05 669 246 curveto
+698.43 242.63 914.77 249.64 935 228 curveto
+943.74 218.65 987.08 209.54 923 136 curveto
+905.92 116.4 890.92 125.88 861.82 117.63 curveto
+stroke
+0.16667 0.8 1 edgecolor
+newpath 862.92 114.31 moveto
+852.32 114.45 lineto
+860.69 120.95 lineto
+closepath fill
+1 setlinewidth
+solid
+0.16667 0.8 1 edgecolor
+newpath 862.92 114.31 moveto
+852.32 114.45 lineto
+860.69 120.95 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+958 180.1 moveto 17 (<5Gb) alignedtext
+grestore
+% XM2->PIF
+gsave
+1 setlinewidth
+0.16667 0.8 1 edgecolor
+newpath 579.26 245.72 moveto
+601.91 220.47 646.25 172.52 688 136 curveto
+692.51 132.05 697.44 128.07 702.35 124.27 curveto
+stroke
+0.16667 0.8 1 edgecolor
+newpath 704.65 126.92 moveto
+710.52 118.1 lineto
+700.43 121.33 lineto
+closepath fill
+1 setlinewidth
+solid
+0.16667 0.8 1 edgecolor
+newpath 704.65 126.92 moveto
+710.52 118.1 lineto
+700.43 121.33 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+657 180.1 moveto 17 (<5Gb) alignedtext
+grestore
+% Qlikview
+gsave
+[ /Rect [ 722 0 776 36 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI (http://localhost:8080/?focusapp=6) >>
+  /Subtype /Link
+/ANN pdfmark
+1 setlinewidth
+0.5451 0.42353 0.92157 nodecolor
+newpath 776 36 moveto
+722 36 lineto
+722 0 lineto
+776 0 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+733 15.5 moveto 32 (Qlikview) alignedtext
+grestore
+% XM2->Qlikview
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 563.73 245.95 moveto
+564.1 220.14 567.92 170.5 590 136 curveto
+619.93 89.23 675.66 54.79 712.55 35.82 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 714.58 38.71 moveto
+721.95 31.1 lineto
+711.45 32.45 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 714.58 38.71 moveto
+721.95 31.1 lineto
+711.45 32.45 lineto
+closepath stroke
+grestore
+% ACL
+gsave
+0 0 0.6 nodecolor
+newpath 141 36 moveto
+87 36 lineto
+87 0 lineto
+141 0 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 141 36 moveto
+87 36 lineto
+87 0 lineto
+141 0 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+106.5 15.5 moveto 15 (ACL) alignedtext
+grestore
+% XM2->ACL
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 536.83 263.31 moveto
+481.87 262.71 355.39 254.95 269 200 curveto
+205.17 159.4 153.45 84.46 129.1 44.95 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 131.96 42.91 moveto
+123.78 36.17 lineto
+125.97 46.53 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 131.96 42.91 moveto
+123.78 36.17 lineto
+125.97 46.53 lineto
+closepath stroke
+grestore
+% mail.essent.nl
+gsave
+0 0 0.6 nodecolor
+newpath 226.25 36 moveto
+159.75 36 lineto
+159.75 0 lineto
+226.25 0 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 226.25 36 moveto
+159.75 36 lineto
+159.75 0 lineto
+226.25 0 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+167.5 15.5 moveto 51 (mail.essent.nl) alignedtext
+grestore
+% XM2->mail.essent.nl
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 536.81 259.91 moveto
+471.57 250.97 305.36 218.95 222 118 curveto
+205.22 97.68 198.15 68.01 195.17 46.46 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 198.62 45.84 moveto
+193.98 36.31 lineto
+191.67 46.65 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 198.62 45.84 moveto
+193.98 36.31 lineto
+191.67 46.65 lineto
+closepath stroke
+grestore
+% Automount
+gsave
+0 0 0.6 nodecolor
+newpath 703.25 36 moveto
+644.75 36 lineto
+644.75 0 lineto
+703.25 0 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 703.25 36 moveto
+644.75 36 lineto
+644.75 0 lineto
+703.25 0 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+652.5 15.5 moveto 43 (Automount) alignedtext
+grestore
+% Informatica->Automount
+gsave
+1 setlinewidth
+0.16667 0.8 1 edgecolor
+newpath 704.68 245.84 moveto
+699.03 204.1 684.55 96.99 677.7 46.33 curveto
+stroke
+0.16667 0.8 1 edgecolor
+newpath 681.13 45.58 moveto
+676.32 36.14 lineto
+674.19 46.52 lineto
+closepath fill
+1 setlinewidth
+solid
+0.16667 0.8 1 edgecolor
+newpath 681.13 45.58 moveto
+676.32 36.14 lineto
+674.19 46.52 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+691 139.1 moveto 17 (<5Gb) alignedtext
+grestore
+% RMS->BPS DWH
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 448.27 206.04 moveto
+458.34 212.9 470.1 219.47 482 223 curveto
+596.62 257.01 901.92 241.73 1020 223 curveto
+1050.89 218.1 1084.51 206.84 1109.24 197.36 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 450.04 203.01 moveto
+439.88 200 lineto
+445.95 208.69 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 450.04 203.01 moveto
+439.88 200 lineto
+445.95 208.69 lineto
+closepath stroke
+0 0 0.6 edgecolor
+newpath 1110.56 200.6 moveto
+1118.59 193.7 lineto
+1108.01 194.08 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 1110.56 200.6 moveto
+1118.59 193.7 lineto
+1108.01 194.08 lineto
+closepath stroke
+grestore
+% ODS
+gsave
+[ /Rect [ 482 164 536 200 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI (http://localhost:8080/?focusapp=32) >>
+  /Subtype /Link
+/ANN pdfmark
+1 setlinewidth
+0.5451 0.42353 0.92157 nodecolor
+newpath 536 200 moveto
+482 200 lineto
+482 164 lineto
+536 164 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+501 179.5 moveto 16 (ODS) alignedtext
+grestore
+% RMS->ODS
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 456.16 182 moveto
+461.4 182 466.64 182 471.88 182 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 456.07 178.5 moveto
+446.07 182 lineto
+456.07 185.5 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 456.07 178.5 moveto
+446.07 182 lineto
+456.07 185.5 lineto
+closepath stroke
+0 0 0.6 edgecolor
+newpath 471.96 185.5 moveto
+481.96 182 lineto
+471.96 178.5 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 471.96 185.5 moveto
+481.96 182 lineto
+471.96 178.5 lineto
+closepath stroke
+grestore
+% Aprimo
+gsave
+[ /Rect [ 300 82 354 118 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI (http://localhost:8080/?focusapp=1) >>
+  /Subtype /Link
+/ANN pdfmark
+1 setlinewidth
+0.5451 0.42353 0.92157 nodecolor
+newpath 354 118 moveto
+300 118 lineto
+300 82 lineto
+354 82 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+313 97.5 moveto 28 (Aprimo) alignedtext
+grestore
+% RMS->Aprimo
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 391.37 156.97 moveto
+379.65 146.78 366.03 134.94 354.34 124.78 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 389.19 159.72 moveto
+399.04 163.64 lineto
+393.79 154.44 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 389.19 159.72 moveto
+399.04 163.64 lineto
+393.79 154.44 lineto
+closepath stroke
+0 0 0.6 edgecolor
+newpath 356.45 121.97 moveto
+346.61 118.05 lineto
+351.86 127.25 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 356.45 121.97 moveto
+346.61 118.05 lineto
+351.86 127.25 lineto
+closepath stroke
+grestore
+% RMS->PIF
+gsave
+1 setlinewidth
+0.16667 0.8 1 edgecolor
+newpath 456.09 168.35 moveto
+461.71 166.71 467.48 165.2 473 164 curveto
+537.33 150.06 556.49 163.3 620 146 curveto
+630.75 143.07 632.68 140.21 643 136 curveto
+661.12 128.62 681.44 120.83 698.37 114.49 curveto
+stroke
+0.16667 0.8 1 edgecolor
+newpath 454.75 165.1 moveto
+446.21 171.37 lineto
+456.8 171.79 lineto
+closepath fill
+1 setlinewidth
+solid
+0.16667 0.8 1 edgecolor
+newpath 454.75 165.1 moveto
+446.21 171.37 lineto
+456.8 171.79 lineto
+closepath stroke
+0.16667 0.8 1 edgecolor
+newpath 699.75 117.71 moveto
+707.9 110.93 lineto
+697.31 111.15 lineto
+closepath fill
+1 setlinewidth
+solid
+0.16667 0.8 1 edgecolor
+newpath 699.75 117.71 moveto
+707.9 110.93 lineto
+697.31 111.15 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+643 139.1 moveto 17 (<5Gb) alignedtext
+grestore
+% RMS->mail.essent.nl
+gsave
+1 setlinewidth
+0.32838 0.57714 0.68627 edgecolor
+newpath 391.74 177.12 moveto
+356.1 170.73 293.66 154.81 255 118 curveto
+233.09 97.14 215.67 66.98 204.94 45.44 curveto
+stroke
+0.32838 0.57714 0.68627 edgecolor
+newpath 207.98 43.7 moveto
+200.49 36.21 lineto
+201.68 46.74 lineto
+closepath fill
+1 setlinewidth
+solid
+0.32838 0.57714 0.68627 edgecolor
+newpath 207.98 43.7 moveto
+200.49 36.21 lineto
+201.68 46.74 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+255 98.1 moveto 17 (<1Gb) alignedtext
+grestore
+% Vaultage
+gsave
+[ /Rect [ 751 164 805 200 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI (http://localhost:8080/?focusapp=11) >>
+  /Subtype /Link
+/ANN pdfmark
+1 setlinewidth
+0.5451 0.42353 0.92157 nodecolor
+newpath 805 200 moveto
+751 200 lineto
+751 164 lineto
+805 164 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+761.5 179.5 moveto 33 (Vaultage) alignedtext
+grestore
+% Vaultage->Informatica
+gsave
+1 setlinewidth
+0.99835 0.88596 0.89412 edgecolor
+newpath 756.06 207.72 moveto
+747.54 217.32 737.8 228.29 729.26 237.92 curveto
+stroke
+0.99835 0.88596 0.89412 edgecolor
+newpath 758.85 209.85 moveto
+762.87 200.05 lineto
+753.61 205.21 lineto
+closepath fill
+1 setlinewidth
+solid
+0.99835 0.88596 0.89412 edgecolor
+newpath 758.85 209.85 moveto
+762.87 200.05 lineto
+753.61 205.21 lineto
+closepath stroke
+0.99835 0.88596 0.89412 edgecolor
+newpath 726.43 235.84 moveto
+722.41 245.64 lineto
+731.66 240.49 lineto
+closepath fill
+1 setlinewidth
+solid
+0.99835 0.88596 0.89412 edgecolor
+newpath 726.43 235.84 moveto
+722.41 245.64 lineto
+731.66 240.49 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+747 221.1 moveto 21 (>25Gb) alignedtext
+grestore
+% Vaultage->BPS DWH
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 805.03 198.36 moveto
+821.9 207.6 844.44 218.22 866 223 curveto
+932.82 237.8 952.4 233.72 1020 223 curveto
+1050.89 218.1 1084.51 206.84 1109.24 197.36 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 1110.56 200.6 moveto
+1118.59 193.7 lineto
+1108.01 194.08 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 1110.56 200.6 moveto
+1118.59 193.7 lineto
+1108.01 194.08 lineto
+closepath stroke
+grestore
+% Vaultage->Qlikview
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 805.1 166.67 moveto
+818.1 157.96 829.07 146.52 820 136 curveto
+784.5 94.82 734.5 159.18 699 118 curveto
+679.77 95.69 701.37 64.7 721.87 43.36 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 724.4 45.79 moveto
+729.01 36.25 lineto
+719.46 40.83 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 724.4 45.79 moveto
+729.01 36.25 lineto
+719.46 40.83 lineto
+closepath stroke
+grestore
+% Sharepoint
+gsave
+0 0 0.6 nodecolor
+newpath 1028.25 36 moveto
+971.75 36 lineto
+971.75 0 lineto
+1028.25 0 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 1028.25 36 moveto
+971.75 36 lineto
+971.75 0 lineto
+1028.25 0 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+979.5 15.5 moveto 41 (Sharepoint) alignedtext
+grestore
+% BPS DWH->Sharepoint
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 1154.75 163.95 moveto
+1164.24 142.8 1175.93 106.55 1159 82 curveto
+1126.34 34.64 1091.17 57.98 1038 36 curveto
+1037.9 35.96 1037.81 35.92 1037.71 35.88 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 1039.13 32.68 moveto
+1028.56 31.99 lineto
+1036.39 39.12 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 1039.13 32.68 moveto
+1028.56 31.99 lineto
+1036.39 39.12 lineto
+closepath stroke
+grestore
+% BPS DWH->Qlikview
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 1127.98 163.86 moveto
+1117.53 154.62 1103.75 143.6 1090 136 curveto
+986.79 78.94 850.78 42.49 786.17 27.23 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 786.96 23.82 moveto
+776.43 24.96 lineto
+785.37 30.63 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 786.96 23.82 moveto
+776.43 24.96 lineto
+785.37 30.63 lineto
+closepath stroke
+grestore
+% Digip->BPS DWH
+gsave
+1 setlinewidth
+0.16667 0.8 1 edgecolor
+newpath 861.84 117.62 moveto
+939.15 137.49 964.34 117.34 1038 136 curveto
+1062.65 142.24 1089.01 153.14 1109.52 162.65 curveto
+stroke
+0.16667 0.8 1 edgecolor
+newpath 862.71 114.23 moveto
+852.15 114.99 lineto
+860.88 120.98 lineto
+closepath fill
+1 setlinewidth
+solid
+0.16667 0.8 1 edgecolor
+newpath 862.71 114.23 moveto
+852.15 114.99 lineto
+860.88 120.98 lineto
+closepath stroke
+0.16667 0.8 1 edgecolor
+newpath 1108.26 165.92 moveto
+1118.8 167.03 lineto
+1111.26 159.59 lineto
+closepath fill
+1 setlinewidth
+solid
+0.16667 0.8 1 edgecolor
+newpath 1108.26 165.92 moveto
+1118.8 167.03 lineto
+1111.26 159.59 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+1069 139.1 moveto 17 (<5Gb) alignedtext
+grestore
+% Digip->Qlikview
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 820.97 81.79 moveto
+818.19 72.76 813.75 61.95 807 54 curveto
+800.91 46.83 792.95 40.72 784.9 35.71 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 786.61 32.66 moveto
+776.2 30.7 lineto
+783.12 38.72 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 786.61 32.66 moveto
+776.2 30.7 lineto
+783.12 38.72 lineto
+closepath stroke
+grestore
+% Totalview->Informatica
+gsave
+1 setlinewidth
+0.32838 0.57714 0.68627 edgecolor
+newpath 1095.76 115.5 moveto
+1085.26 121.44 1073.31 128.65 1063 136 curveto
+1011.92 172.4 1013.14 202.15 956 228 curveto
+919.42 244.55 806.84 255.39 746.37 260.18 curveto
+stroke
+0.32838 0.57714 0.68627 edgecolor
+newpath 745.77 256.71 moveto
+736.07 260.97 lineto
+746.31 263.69 lineto
+closepath fill
+1 setlinewidth
+solid
+0.32838 0.57714 0.68627 edgecolor
+newpath 745.77 256.71 moveto
+736.07 260.97 lineto
+746.31 263.69 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+1031 180.1 moveto 17 (<1Gb) alignedtext
+grestore
+% Totalview->BPS DWH
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 1127.9 118.05 moveto
+1130.89 128.44 1134.77 141.95 1138.18 153.79 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 1134.88 155 moveto
+1141.01 163.64 lineto
+1141.61 153.06 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 1134.88 155 moveto
+1141.01 163.64 lineto
+1141.61 153.06 lineto
+closepath stroke
+grestore
+% Totalview->PIF
+gsave
+1 setlinewidth
+0.32838 0.57714 0.68627 edgecolor
+newpath 1095.65 113.49 moveto
+1091.18 115.26 1086.52 116.86 1082 118 curveto
+968.08 146.79 935.9 134.72 818.5 139.5 curveto
+810.95 139.81 808.79 141.5 801.5 139.5 curveto
+789.46 136.19 777.4 130.08 766.91 123.63 curveto
+stroke
+0.32838 0.57714 0.68627 edgecolor
+newpath 768.81 120.69 moveto
+758.51 118.19 lineto
+765 126.57 lineto
+closepath fill
+1 setlinewidth
+solid
+0.32838 0.57714 0.68627 edgecolor
+newpath 768.81 120.69 moveto
+758.51 118.19 lineto
+765 126.57 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+801.5 139.1 moveto 17 (<1Gb) alignedtext
+grestore
+% PIF->iProcess
+gsave
+1 setlinewidth
+0.083007 1 1 edgecolor
+newpath 771.66 112.6 moveto
+799.73 121.66 833.98 133.17 836 136 curveto
+838.58 139.62 836.85 141.64 836 146 curveto
+820.48 225.21 817.16 255.09 758 310 curveto
+744.65 322.39 736.17 320.4 715.4 328.21 curveto
+stroke
+0.083007 1 1 edgecolor
+newpath 772.65 109.25 moveto
+762.06 109.52 lineto
+770.51 115.91 lineto
+closepath fill
+1 setlinewidth
+solid
+0.083007 1 1 edgecolor
+newpath 772.65 109.25 moveto
+762.06 109.52 lineto
+770.51 115.91 lineto
+closepath stroke
+0.083007 1 1 edgecolor
+newpath 713.98 325.01 moveto
+706.07 332.06 lineto
+716.65 331.48 lineto
+closepath fill
+1 setlinewidth
+solid
+0.083007 1 1 edgecolor
+newpath 713.98 325.01 moveto
+706.07 332.06 lineto
+716.65 331.48 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+821 221.1 moveto 21 (<25Gb) alignedtext
+grestore
+% PIF->TIJSS
+gsave
+1 setlinewidth
+0.32838 0.57714 0.68627 edgecolor
+newpath 762.06 110.01 moveto
+770.63 112.73 780.17 115.62 789 118 curveto
+824.19 127.48 839.15 115.09 869 136 curveto
+935.32 182.45 976.47 273.28 993.67 318.34 curveto
+stroke
+0.32838 0.57714 0.68627 edgecolor
+newpath 990.49 319.84 moveto
+997.26 327.99 lineto
+997.06 317.4 lineto
+closepath fill
+1 setlinewidth
+solid
+0.32838 0.57714 0.68627 edgecolor
+newpath 990.49 319.84 moveto
+997.26 327.99 lineto
+997.06 317.4 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+949 221.1 moveto 17 (<1Gb) alignedtext
+grestore
+% PIF->BPS DWH
+gsave
+1 setlinewidth
+0.16667 0.8 1 edgecolor
+newpath 762.17 110.82 moveto
+770.66 113.55 780.13 116.24 789 118 curveto
+879.14 135.9 906.11 112.65 995 136 curveto
+1005.39 138.73 1006.79 142.68 1017 146 curveto
+1054.97 158.34 1066.83 152.3 1105 164 curveto
+1106.43 164.44 1107.87 164.91 1109.33 165.4 curveto
+stroke
+0.16667 0.8 1 edgecolor
+newpath 1108.33 168.76 moveto
+1118.92 168.92 lineto
+1110.74 162.19 lineto
+closepath fill
+1 setlinewidth
+solid
+0.16667 0.8 1 edgecolor
+newpath 1108.33 168.76 moveto
+1118.92 168.92 lineto
+1110.74 162.19 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+1017 139.1 moveto 17 (<5Gb) alignedtext
+grestore
+% PIF->Digip
+gsave
+1 setlinewidth
+0.16667 0.8 1 edgecolor
+newpath 772.16 100 moveto
+777.24 100 782.45 100 787.54 100 curveto
+stroke
+0.16667 0.8 1 edgecolor
+newpath 772 96.5 moveto
+762 100 lineto
+772 103.5 lineto
+closepath fill
+1 setlinewidth
+solid
+0.16667 0.8 1 edgecolor
+newpath 772 96.5 moveto
+762 100 lineto
+772 103.5 lineto
+closepath stroke
+0.16667 0.8 1 edgecolor
+newpath 787.71 103.5 moveto
+797.71 100 lineto
+787.7 96.5 lineto
+closepath fill
+1 setlinewidth
+solid
+0.16667 0.8 1 edgecolor
+newpath 787.71 103.5 moveto
+797.71 100 lineto
+787.7 96.5 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+771.5 105.6 moveto 17 (<5Gb) alignedtext
+grestore
+% Audit Base
+gsave
+0 0 0.6 nodecolor
+newpath 925.25 118 moveto
+870.75 118 lineto
+870.75 82 lineto
+925.25 82 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 925.25 118 moveto
+870.75 118 lineto
+870.75 82 lineto
+925.25 82 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+878.5 97.5 moveto 39 (Audit Base) alignedtext
+grestore
+% PIF->Audit Base
+gsave
+1 setlinewidth
+0.32838 0.57714 0.68627 edgecolor
+newpath 757.53 125.57 moveto
+763.99 131.24 771.49 136.46 779.5 139.5 curveto
+807.9 150.29 840.71 137.44 864.59 123.59 curveto
+stroke
+0.32838 0.57714 0.68627 edgecolor
+newpath 759.56 122.67 moveto
+749.92 118.29 lineto
+754.72 127.73 lineto
+closepath fill
+1 setlinewidth
+solid
+0.32838 0.57714 0.68627 edgecolor
+newpath 759.56 122.67 moveto
+749.92 118.29 lineto
+754.72 127.73 lineto
+closepath stroke
+0.32838 0.57714 0.68627 edgecolor
+newpath 866.57 126.48 moveto
+873.28 118.28 lineto
+862.92 120.51 lineto
+closepath fill
+1 setlinewidth
+solid
+0.32838 0.57714 0.68627 edgecolor
+newpath 866.57 126.48 moveto
+873.28 118.28 lineto
+862.92 120.51 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+779.5 139.1 moveto 17 (<1Gb) alignedtext
+grestore
+% PIF->Qlikview
+gsave
+1 setlinewidth
+0.16667 0.8 1 edgecolor
+newpath 738.04 81.64 moveto
+739.85 71.3 742.19 57.94 744.24 46.22 curveto
+stroke
+0.16667 0.8 1 edgecolor
+newpath 747.74 46.5 moveto
+746.02 36.05 lineto
+740.84 45.3 lineto
+closepath fill
+1 setlinewidth
+solid
+0.16667 0.8 1 edgecolor
+newpath 747.74 46.5 moveto
+746.02 36.05 lineto
+740.84 45.3 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+743 57.1 moveto 17 (<5Gb) alignedtext
+grestore
+% SAS
+gsave
+[ /Rect [ 372 82 426 118 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI (http://localhost:8080/?focusapp=15) >>
+  /Subtype /Link
+/ANN pdfmark
+1 setlinewidth
+0.5451 0.42353 0.92157 nodecolor
+newpath 426 118 moveto
+372 118 lineto
+372 82 lineto
+426 82 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+392 97.5 moveto 14 (SAS) alignedtext
+grestore
+% SAS->RMS
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 405.75 128 moveto
+407.83 136.31 410.12 145.46 412.2 153.79 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 409.08 126.9 moveto
+403.26 118.05 lineto
+402.29 128.6 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 409.08 126.9 moveto
+403.26 118.05 lineto
+402.29 128.6 lineto
+closepath stroke
+0 0 0.6 edgecolor
+newpath 408.84 154.79 moveto
+414.66 163.64 lineto
+415.63 153.09 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 408.84 154.79 moveto
+414.66 163.64 lineto
+415.63 153.09 lineto
+closepath stroke
+grestore
+% Wasstraat
+gsave
+[ /Rect [ 444 82 498 118 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI (http://localhost:8080/?focusapp=25) >>
+  /Subtype /Link
+/ANN pdfmark
+1 setlinewidth
+0.5451 0.42353 0.92157 nodecolor
+newpath 498 118 moveto
+444 118 lineto
+444 82 lineto
+498 82 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+452.5 97.5 moveto 37 (Wasstraat) alignedtext
+grestore
+% Wasstraat->RMS
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 454.29 126.71 moveto
+448.36 135.83 441.69 146.09 435.76 155.21 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 457.4 128.34 moveto
+459.92 118.05 lineto
+451.53 124.53 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 457.4 128.34 moveto
+459.92 118.05 lineto
+451.53 124.53 lineto
+closepath stroke
+0 0 0.6 edgecolor
+newpath 432.8 153.35 moveto
+430.28 163.64 lineto
+438.67 157.16 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 432.8 153.35 moveto
+430.28 163.64 lineto
+438.67 157.16 lineto
+closepath stroke
+grestore
+% AIA ITP B2B
+gsave
+[ /Rect [ 1392 82 1450 118 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI (http://localhost:8080/?focusapp=29) >>
+  /Subtype /Link
+/ANN pdfmark
+1 setlinewidth
+0.5451 0.42353 0.92157 nodecolor
+newpath 1450 118 moveto
+1392 118 lineto
+1392 82 lineto
+1450 82 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+1400 97.5 moveto 42 (AIA ITP B2B) alignedtext
+grestore
+% HISA
+gsave
+0 0 0.6 nodecolor
+newpath 1522 118 moveto
+1468 118 lineto
+1468 82 lineto
+1522 82 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 1522 118 moveto
+1468 118 lineto
+1468 82 lineto
+1522 82 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+1486 97.5 moveto 18 (HISA) alignedtext
+grestore
+% TEP
+gsave
+0 0 0.6 nodecolor
+newpath 1272 118 moveto
+1218 118 lineto
+1218 82 lineto
+1272 82 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 1272 118 moveto
+1218 118 lineto
+1218 82 lineto
+1272 82 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+1238 97.5 moveto 14 (TEP) alignedtext
+grestore
+% TEP->BPS DWH
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 1225.33 118.14 moveto
+1215.43 126.64 1203.19 137 1192 146 curveto
+1187.29 149.79 1182.25 153.73 1177.3 157.54 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 1174.94 154.94 moveto
+1169.12 163.79 lineto
+1179.19 160.5 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 1174.94 154.94 moveto
+1169.12 163.79 lineto
+1179.19 160.5 lineto
+closepath stroke
+grestore
+% Tibco BW B2B
+gsave
+0 0 0.6 nodecolor
+newpath 1356 118 moveto
+1290 118 lineto
+1290 82 lineto
+1356 82 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 1356 118 moveto
+1290 118 lineto
+1290 82 lineto
+1356 82 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+1298 97.5 moveto 50 (Tibco BW B2B) alignedtext
+grestore
+% Tibco BW B2B->AIA ITP B2B
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 1366.33 100 moveto
+1371.53 100 1376.73 100 1381.93 100 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 1366.3 96.5 moveto
+1356.3 100 lineto
+1366.3 103.5 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 1366.3 96.5 moveto
+1356.3 100 lineto
+1366.3 103.5 lineto
+closepath stroke
+0 0 0.6 edgecolor
+newpath 1381.94 103.5 moveto
+1391.94 100 lineto
+1381.94 96.5 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 1381.94 103.5 moveto
+1391.94 100 lineto
+1381.94 96.5 lineto
+closepath stroke
+grestore
+% Sharepoint->PIF
+gsave
+1 setlinewidth
+0.16667 0.8 1 edgecolor
+newpath 962.02 30.15 moveto
+919.74 42.62 849.4 63.48 789 82 curveto
+783.54 83.68 777.77 85.47 772.12 87.23 curveto
+stroke
+0.16667 0.8 1 edgecolor
+newpath 963.03 33.51 moveto
+971.63 27.32 lineto
+961.05 26.79 lineto
+closepath fill
+1 setlinewidth
+solid
+0.16667 0.8 1 edgecolor
+newpath 963.03 33.51 moveto
+971.63 27.32 lineto
+961.05 26.79 lineto
+closepath stroke
+0.16667 0.8 1 edgecolor
+newpath 770.66 84.02 moveto
+762.17 90.36 lineto
+772.76 90.7 lineto
+closepath fill
+1 setlinewidth
+solid
+0.16667 0.8 1 edgecolor
+newpath 770.66 84.02 moveto
+762.17 90.36 lineto
+772.76 90.7 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+882 57.1 moveto 17 (<5Gb) alignedtext
+grestore
+% RMS Portal
+gsave
+[ /Rect [ 498 0 554 36 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI (http://localhost:8080/?focusapp=26) >>
+  /Subtype /Link
+/ANN pdfmark
+1 setlinewidth
+0.5451 0.42353 0.92157 nodecolor
+newpath 554 36 moveto
+498 36 lineto
+498 0 lineto
+554 0 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+506 15.5 moveto 40 (RMS Portal) alignedtext
+grestore
+% RMS Portal->RMS
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 526.11 46.37 moveto
+525 67.46 520.74 96.54 507 118 curveto
+494.52 137.49 473.67 152.81 455.4 163.46 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 529.62 46.27 moveto
+526.44 36.16 lineto
+522.62 46.04 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 529.62 46.27 moveto
+526.44 36.16 lineto
+522.62 46.04 lineto
+closepath stroke
+0 0 0.6 edgecolor
+newpath 453.45 160.54 moveto
+446.41 168.46 lineto
+456.86 166.66 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 453.45 160.54 moveto
+446.41 168.46 lineto
+456.86 166.66 lineto
+closepath stroke
+grestore
+% SPSS
+gsave
+[ /Rect [ 1047 0 1101 36 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI (http://localhost:8080/?focusapp=28) >>
+  /Subtype /Link
+/ANN pdfmark
+1 setlinewidth
+0.5451 0.42353 0.92157 nodecolor
+newpath 1101 36 moveto
+1047 36 lineto
+1047 0 lineto
+1101 0 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+1065 15.5 moveto 18 (SPSS) alignedtext
+grestore
+% RWE ftp
+gsave
+0 0 0.6 nodecolor
+newpath 299 36 moveto
+245 36 lineto
+245 0 lineto
+299 0 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 299 36 moveto
+245 36 lineto
+245 0 lineto
+299 0 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+257.5 15.5 moveto 29 (RWE ftp) alignedtext
+grestore
+% RWE ftp->RMS
+gsave
+1 setlinewidth
+0 0 0.6 edgecolor
+newpath 270.91 46.37 moveto
+271.44 67.88 275.38 97.52 291 118 curveto
+313.3 147.25 352.8 163.76 382.04 172.47 curveto
+stroke
+0 0 0.6 edgecolor
+newpath 274.41 46.25 moveto
+270.9 36.25 lineto
+267.41 46.26 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 274.41 46.25 moveto
+270.9 36.25 lineto
+267.41 46.26 lineto
+closepath stroke
+0 0 0.6 edgecolor
+newpath 381.33 175.91 moveto
+391.91 175.24 lineto
+383.22 169.17 lineto
+closepath fill
+1 setlinewidth
+solid
+0 0 0.6 edgecolor
+newpath 381.33 175.91 moveto
+391.91 175.24 lineto
+383.22 169.17 lineto
+closepath stroke
+grestore
+% IP Storage
+gsave
+0 0 0.6 nodecolor
+newpath 626 36 moveto
+572 36 lineto
+572 0 lineto
+626 0 lineto
+closepath fill
+1 setlinewidth
+filled
+0 0 0.6 nodecolor
+newpath 626 36 moveto
+572 36 lineto
+572 0 lineto
+626 0 lineto
+closepath stroke
+0 0 0 nodecolor
+10 /Myriad Condensed Web set_font
+580 15.5 moveto 38 (IP Storage) alignedtext
+grestore
+% IP Storage->Informatica
+gsave
+1 setlinewidth
+0.16667 0.8 1 edgecolor
+newpath 595.58 36.05 moveto
+589.65 70.81 581.4 150.75 619 200 curveto
+632.3 217.42 651.76 232.05 668.99 242.81 curveto
+stroke
+0.16667 0.8 1 edgecolor
+newpath 667.39 245.93 moveto
+677.76 248.08 lineto
+670.99 239.93 lineto
+closepath fill
+1 setlinewidth
+solid
+0.16667 0.8 1 edgecolor
+newpath 667.39 245.93 moveto
+677.76 248.08 lineto
+670.99 239.93 lineto
+closepath stroke
+0 0 0 edgecolor
+8 /Myriad Condensed Web set_font
+596 139.1 moveto 17 (<5Gb) alignedtext
+grestore
+endpage
+showpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+end
+restore
+%%EOF
