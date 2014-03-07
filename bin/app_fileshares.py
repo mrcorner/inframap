@@ -37,7 +37,7 @@ def readfiles():
 	intlegend = [i.value for i in intsheet.row(0)]
 	for rx in range(1, intsheet.nrows):	
 		rowx = intsheet.row(rx)
-		if rowx[intlegend.index('SourceName')].value != "":
+		if rowx[intlegend.index('SourceName')].value != "" and rowx[intlegend.index('Type')].value == "Fileshare":
 			interface = nInterface(rowx[intlegend.index('ID')].value, 
 							   	   rowx[intlegend.index('SourceApp')].value, 
 							   	   rowx[intlegend.index('SourceServer')].value,
@@ -397,7 +397,40 @@ def htmloutput(appfocus):
 
 		htmlstring = htmlstring + '<br><br><a href="http://localhost:8080/">Back</a>'
 
-	htmlstring = htmlstring + '</body></html>'
+	else:
+		# list all interfaces
+		htmlstring = htmlstring + '<br>Interfaces<br><table width="800" border="1"><tr id="header"><td>#</td><td>SourceName</td><td>SourceServer</td><td>TargetName</td><td>TargetServer</td><td>Protocol</td><td>Throughput</td></tr>'
+		counter = 0
+		for interface in listInterfaces:
+			outSServer = ""
+			outTServer = ""
+			
+			for server in listServers:
+				if server.ID == interface.fromServerID:
+					outSServer = server.hostname
+				if server.ID == interface.toServerID:
+					outTServer = server.hostname
+			counter = counter + 1
+			htmlstring = htmlstring + ('<tr><td>%02d' % counter + "</td><td>" + 
+			   	interface.fromName + "</td><td>" + 
+			   	outSServer + "</td><td>" +
+			   	interface.toName + "</td><td>" +
+			   	outTServer + "</td><td>" +
+			   	interface.protocol + "</td><td>" +
+			   	"%02d" % interface.throughput + '</td></tr>')
+
+		htmlstring = htmlstring + '</table><br><br>'
+
+		#repeat, list legenda for interfaces
+		counter = 0
+		
+		for interface in listInterfaces:
+			counter = counter + 1
+			htmlstring = htmlstring + '%02d' % counter + ". " + interface.interfacefunction + "<br>"		
+
+		
+
+	htmlstring = htmlstring + '<br></body></html>'
 
 	return htmlstring
 
