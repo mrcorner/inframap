@@ -1,3 +1,5 @@
+#20140307 added new server mapping
+
 import web
 import time
 import xlrd
@@ -78,7 +80,9 @@ def readfiles():
 							 rowx[serlegend.index('oldCores')].value,
 							 rowx[serlegend.index('newCores')].value,
 							 rowx[serlegend.index('oldRAM')].value,
-							 rowx[serlegend.index('newRAM')].value		
+							 rowx[serlegend.index('newRAM')].value,
+							 rowx[serlegend.index('newHostname')].value,
+							 rowx[serlegend.index('newSID')].value			
 							 )
 			if listServers.count(server) == 0:
 				listServers.append(server)
@@ -293,7 +297,7 @@ def htmloutput(appfocus):
 
 	if appfocus != "none":
 		#print outgoing interfaces
-		htmlstring = htmlstring + '<br>Outgoing data:<br><table width="800" border="1"><tr id="header"><td>#</td><td>SourceName</td><td>SourceServer</td><td>TargetName</td><td>TargetServer</td><td>Protocol</td><td>Throughput</td></tr>'
+		htmlstring = htmlstring + '<br>Outgoing data:<br><table width="1100" border="1"><tr id="header"><td>#</td><td>SourceName</td><td>SourceServer</td><td>TargetName</td><td>TargetServer</td><td>Protocol</td><td>Throughput</td><td>Function</td></tr>'
 
 		counter = 0
 		for interface in listInterfaces:
@@ -312,12 +316,13 @@ def htmloutput(appfocus):
 			   		interface.toName + "</td><td>" +
 			   		outTServer + "</td><td>" +
 			   		interface.protocol + "</td><td>" +
-			   		"%02d" % interface.throughput + '</td></tr>')
+			   		"%02d" % interface.throughput + '</td><td>' +
+			   		interface.interfacefunction + '</td></tr>')
 
 		htmlstring = htmlstring + '</table><br>'
 
 
-		htmlstring = htmlstring + 'Incoming data:<br><table width="800" border="1"><tr id="header"><td>#</td><td>SourceName</td><td>SourceServer</td><td>TargetName</td><td>TargetServer</td><td>Protocol</td><td>Throughput</td></tr>'
+		htmlstring = htmlstring + 'Incoming data:<br><table width="1100" border="1"><tr id="header"><td>#</td><td>SourceName</td><td>SourceServer</td><td>TargetName</td><td>TargetServer</td><td>Protocol</td><td>Throughput</td><td>Function</td></tr>'
 		#counter = 0
 		for interface in listInterfaces:
 			outSServer = ""
@@ -335,22 +340,23 @@ def htmloutput(appfocus):
 			   		interface.toName + "</td><td>" +
 			   		outTServer + "</td><td>" +
 			   		interface.protocol + "</td><td>" +
-			   		"%02d" % interface.throughput + '</td></tr>')
+			   		"%02d" % interface.throughput + '</td><td>' +
+			   		interface.interfacefunction + '</td></tr>')
 
 		htmlstring = htmlstring + '</table><br><br>'
 
 		#repeat, list legenda for interfaces
-		counter = 0
-		
-		for interface in listInterfaces:
-			if interface.fromAppID == appfocus and interface.toAppID != interface.fromAppID:
-				counter = counter + 1
-				htmlstring = htmlstring + '%02d' % counter + ". " + interface.interfacefunction + "<br>"		
-
-		for interface in listInterfaces:
-			if interface.toAppID == appfocus and interface.toAppID != interface.fromAppID:
-				counter = counter + 1
-				htmlstring = htmlstring + '%02d' % counter + ". " + interface.interfacefunction + "<br>"	
+		#counter = 0
+		#
+		#for interface in listInterfaces:
+		#	if interface.fromAppID == appfocus and interface.toAppID != interface.fromAppID:
+		#		counter = counter + 1
+		#		htmlstring = htmlstring + '%02d' % counter + ". " + interface.interfacefunction + "<br>"		
+		#
+		#for interface in listInterfaces:
+		#	if interface.toAppID == appfocus and interface.toAppID != interface.fromAppID:
+		#		counter = counter + 1
+		#		htmlstring = htmlstring + '%02d' % counter + ". " + interface.interfacefunction + "<br>"	
 
 
 		#list all old servers for application
@@ -375,11 +381,14 @@ def htmloutput(appfocus):
 		htmlstring = htmlstring + '</table>'
 
 		#list all new servers
-		htmlstring = htmlstring + '<br><br>New servers:<br><table width="400" border="1"><tr id="header"><td>#</td><td>Hostname</td><td>E</td><td>Function</td><td>VM</td><td>CPU</td><td>RAM</td></tr>'
+		htmlstring = htmlstring + '<br><br>New servers:<br><table width="400" border="1"><tr id="header"><td>#</td><td>Hostname/SID</td><td>E</td><td>Function</td><td>VM</td><td>CPU</td><td>RAM</td></tr>'
 		for server in listServers:
 			if server.AppID == appfocus:
-				htmlstring = htmlstring + ('<tr><td>%02d' % server.ID + "</td><td>" + 
-			   		server.hostname + "</td><td>")
+				htmlstring = htmlstring + ('<tr><td>%02d' % server.ID + "</td><td>")
+				if server.newhostname != "":
+					htmlstring = htmlstring  + (server.newhostname + "</td><td>")
+				else:
+					htmlstring = htmlstring  + (server.newSID + "</td><td>")
 				if server.d == "X":
 					htmlstring = htmlstring + "D"
 			   	if server.t == "X":
@@ -442,12 +451,12 @@ class nApplication(object):
 		self.layer = layer
 
 class nServer(object):
-	def __init__(self, ID, AppID, function, hostname, appname, inscope, d, t, a, p, oldservertype, newservertype, oldcores, newcores, oldram, newram):
+	def __init__(self, ID, AppID, function, hostname, appname, inscope, d, t, a, p, oldservertype, newservertype, oldcores, newcores, oldram, newram, newhostname, newSID):
 		self.ID = int(ID)
 		self.AppID = int(AppID)
 		self.function = function	
-		self.hostname = hostname
-		self.appname = appname
+		self.hostname = str(hostname)
+		self.appname = str(appname)
 		self.inscope = inscope
 		self.d = d
 		self.t = t
@@ -459,6 +468,8 @@ class nServer(object):
 		self.newcores = str(newcores)
 		self.oldram = str(oldram)
 		self.newram = str(newram)
+		self.newhostname = str(newhostname)
+		self.newSID = str(newSID)
 
 
 
@@ -562,7 +573,7 @@ class Index(object):
     	form = web.input(focusapp="none")
     	print form.focusapp
     	if form.focusapp == "none":
-    		#system("dot -Tsvg -ostatic/out.svg " + generateAllServerPos())
+    		system("dot -Tsvg -ostatic/out.svg " + generateAllServerPos())
     		#system("dot -Tpdf -ostatic/servermap.pdf " + generateAllServerPos())
     		system("dot -Tsvg -ostatic/out.svg " + generatePosFile("none", "throughput", "none"))
     		system("dot -Tpdf -ostatic/inframap.pdf " + generatePosFile("none", "throughput", "none"))
